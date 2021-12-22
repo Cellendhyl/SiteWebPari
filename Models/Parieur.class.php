@@ -13,12 +13,16 @@ class Parieur {
     private $_mdp;
     private $_capital;
 
-    public __contruct($idParieur,$nom,$prenom,$age,$identifiant,$mdp,$capital){
+    public function __contruct(){
+        
+    }
+
+    public function create($idParieur,$nom,$prenom,$age,$identifiant,$mdp,$capital){
         $this->_idParieur = $idParieur;
         $this->_nom = $nom;
         $this->_prenom = $prenom;
         $this->_age = $age;
-        $this->$_identifiant = $identifiant;
+        $this->_identifiant = $identifiant;
         $this->_mdp = $mdp;
         $this->_capital = $capital;
     }
@@ -28,10 +32,10 @@ class Parieur {
     }
 
     public function getNom() {
-        return $this->_nom;
+       return $this->_nom;
     }
 
-    public function getPreom() {
+    public function getPrenom() {
         return $this->_prenom;
     }
 
@@ -50,7 +54,7 @@ class Parieur {
         return $this->_capital;
     }
 
-    public function setIdParieur(int $id){
+    public function setIdParieur($id){
         $this->_idParieur = $id;
     }
 

@@ -1,19 +1,11 @@
 <?php
-
-
-
-
-
-define('HOST','localhost');
-define('DB_NAME','projet');
-define('USER','root');
-define('PASS','');
+ include 'define.php';
 
     try{
-        $dbco = new PDO("mysql:host=".HOST, USER, PASS);
+        $dbco = new PDO("mysql:host=".PDO_HOST, PDO_USER, PDO_PW);
         $dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
-        $sql = "CREATE DATABASE ".DB_NAME;
+        $sql = "CREATE DATABASE ".PDO_DBBASE;
         $dbco->exec($sql);
         
         echo 'Base de données créée bien créée ! </br>';
@@ -24,7 +16,7 @@ define('PASS','');
     }
     
     try {
-        $db = new PDO("mysql:host=".HOST.";dbname=".DB_NAME, USER, PASS);
+        $db = new PDO("mysql:host=" . PDO_HOST . ";"."dbname=" . PDO_DBBASE, PDO_USER, PDO_PW);
         $db -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch(PDOExcepetion $e){
         echo $e;
