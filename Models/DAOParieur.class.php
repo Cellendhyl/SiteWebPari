@@ -31,6 +31,7 @@ class DAOParieur{
   public function add() {
 	try{
 		$this->connect();
+		$this->parieur->setCapital(10000);
 		$sql = $this->connexion->prepare("INSERT INTO Parieur (nom,prenom,age,identifiant,mdp,capital) VALUES(:nom,:prenom,:age,:identifiant,:mdp,:capital)");
 		$res = $sql -> execute([
     	':nom'=> $this->parieur->getNom(), 

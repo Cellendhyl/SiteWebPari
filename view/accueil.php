@@ -6,7 +6,6 @@
         <link rel="stylesheet" href="../css/style.css"> 
         <link rel="stylesheet" href="../css/all.min.css">
         <script defer src="../Controler/app.js"></script>
-        
         <title>Document</title>
     </head> 
     <body>
@@ -14,7 +13,6 @@
 <section class="top-page">
         <header class="header">
             <nav class="nav">
-                <li><a href="map.php"><i class="far fa-compass"></i></a></li>
                 <?php session_start(); 
                 if (isset($_SESSION["CONNECT"])) {
                     echo '<li><a href=validation.php?afaire=deconnexion><i class="fas fa-door-open"></i></a></li>';

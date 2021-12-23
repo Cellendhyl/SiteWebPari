@@ -15,14 +15,12 @@ class Parieur {
         
     }
 
-    public function create($idParieur,$nom,$prenom,$age,$identifiant,$mdp,$capital){
-        $this->_idParieur = $idParieur;
+    public function create($nom,$prenom,$age,$identifiant,$mdp){
         $this->_nom = $nom;
         $this->_prenom = $prenom;
         $this->_age = $age;
         $this->_identifiant = $identifiant;
         $this->_mdp = $mdp;
-        $this->_capital = $capital;
     }
 
     public function getIdParieur(){
@@ -74,7 +72,7 @@ class Parieur {
         $this->_mdp = $mdp;
     }
 
-    public function setCapitale(int $capital){
+    public function setCapital($capital){
         $this->_capital = $capital;
     }
 

@@ -1,12 +1,12 @@
 <?php
 require_once("Controler/define.php");
-include("Models/match.class.php");
-include("Models/DAOMatch.class.php");
+include("Models/Parieur.class.php");
+include("Models/DAOParieur.class.php");
 
 
-$match= new Match();
-$match->create(1,1,"Barça ","Real","02-01-2022",null,null,3);
-$matchDAO = new DAOMatch($match);
-$matchDAO->add();
+$parieur= new Parieur();
+$parieur->create('mb','mb',21,'mb','mb');
+$parieurDAO = new DAOParieur($parieur);
+$parieurDAO->add();
 
 ?>
