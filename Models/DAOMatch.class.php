@@ -59,7 +59,7 @@
                 $this->connect();
                 $query = "delete from Matchs where id_match=:id_match"; 
                 $data = array( 
-                ':id_match'=>$this->match->get_id_match()
+                ':id_match'=>$this->match->get_idMatch()
                 );
                 $sth = $this->connexion->prepare( $query );
                 $res=$sth->execute( $data );

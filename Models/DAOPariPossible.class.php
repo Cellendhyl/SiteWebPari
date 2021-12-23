@@ -33,8 +33,8 @@ class DAOPari{
 		$this->connect();
 		$sql = $this->connexion->prepare("INSERT INTO pari (description,cote,id_sport) VALUES(:description,:cote:id_sport)");
 		$res = $sql -> execute([
-    	':description'=> $this->pari->getDescription();
-        ':cote'=> $this->pari->getCote()
+    	':description'=> $this->pari->getDescription(),
+        ':cote'=> $this->pari->getCote(),
         ':id_sport'=> $this->pari->getIdSport()
     	]);
 		$id = $this->connexion->lastInsertId();
@@ -69,11 +69,10 @@ class DAOPari{
 	    try{
 		    $this->connect();
 		    $sql = $this->connexion->prepare("UPDATE pari SET description=:description,cote=:cote,id_sport=:id_sport WHERE id_pari=:id ");
-		    echo $this->pari->getIdpari();
 		    $res = $sql -> execute([
 			    ':id'=>$this->pari->getIdPari(),
-    		    ':description'=> $this->pari->getDescription();
-                ':cote'=> $this->pari->getCote()
+    		    ':description'=> $this->pari->getDescription(),
+                ':cote'=> $this->pari->getCote(),
                 ':id_sport'=> $this->pari->getIdSport()
     	    ]);
 		    $this->connexion = null;

@@ -33,8 +33,8 @@ class DAOAdmin{
 		$this->connect();
 		$sql = $this->connexion->prepare("INSERT INTO admin (description,cote,id_sport) VALUES(:description,:cote,:id_sport)");
 		$res = $sql -> execute([
-    	':description'=> $this->admin->getDescription();
-        ':cote'=> $this->admin->getCote()
+    	':description'=> $this->admin->getDescription(),
+        ':cote'=> $this->admin->getCote(),
         ':id_sport'=> $this->admin->getIdSport()
     	]);
 		$id = $this->connexion->lastInsertId();
@@ -71,8 +71,8 @@ class DAOAdmin{
 		    $sql = $this->connexion->prepare("UPDATE admin SET description=:description,cote=:cote,id_sport=:id_sport WHERE id_admin=:id ");
 		    $res = $sql -> execute([
 			    ':id'=>$this->admin->getIdAdmin(),
-    		    ':description'=> $this->admin->getDescription();
-                ':cote'=> $this->admin->getCote()
+    		    ':description'=> $this->admin->getDescription(),
+                ':cote'=> $this->admin->getCote(),
                 ':id_sport'=> $this->admin->getIdSport()
     	    ]);
 		    $this->connexion = null;
