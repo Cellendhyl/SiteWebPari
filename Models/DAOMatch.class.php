@@ -75,7 +75,6 @@
             try{
                 $this->connect();
                 $sql = $this->connexion->prepare("UPDATE Matchs SET id_match=:id_match, id_sport=:id_sport, equipe1=:equipe1, equipe2=:equipe2, dates=:dates, vainqueur=:vainqueur,cote=:cote WHERE id_match=:id_match ");
-                echo $this->match->getMatch();
                 $res = $sql -> execute([
                     ':id_match'=>$this->Matchs->get_idMatch(),
                     ':id_sport'=>$this->Matchs->get_idSport(),

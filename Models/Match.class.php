@@ -1,7 +1,7 @@
 <?php
 
     
-    class match{
+    class Match{
 
         private $_id_match;
         private $_id_sport;
@@ -12,7 +12,13 @@
         private $_cote;
 
     
-        public function __construct(int idmatch,string idsport, string $e1,string $e2,string $date, string $vainqueur , $cote){
+        
+
+        public function __construct(){
+
+        }
+        public function create($idmatch,$idsport,$e1,$e2,$date, $vainqueur , $cote){
+
             $this->_id_match=$idmatch;
             $this->_id_sport=$idsport;
             $this->_equipe1=$e1;
@@ -21,11 +27,6 @@
             $this->_vainqueur=$vainqueur;
             $this->_cote=$cote;
         }
-
-        public function __construct(){
-
-        }
-        
         public function get_idMatch(){
             return $this->_id_match; 
         }
