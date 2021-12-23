@@ -37,6 +37,7 @@ $sql = "CREATE TABLE Matchs(
     equipe2 VARCHAR(30) NOT NULL,
     date VARCHAR(30) NOT NULL,
     vainqueur VARCHAR(255),
+    score VARCHAR(255),
     cote INT NOT NULL,
     id_sport INT UNSIGNED NOT NULL,
     FOREIGN KEY (id_sport) REFERENCES Sport(id_sport))";

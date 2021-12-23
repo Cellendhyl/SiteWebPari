@@ -9,14 +9,13 @@
         private $_equipe2;
         private $_date;
         private $_vainqueur;
+        private $_score;
         private $_cote;
-
-    
     
         public function __construct(){
 
         }
-        public function create($idmatch,$idsport,$e1,$e2,$date, $vainqueur , $cote){
+        public function create($idmatch,$idsport,$e1,$e2,$date, $vainqueur,$score, $cote){
 
             $this->_id_match=$idmatch;
             $this->_id_sport=$idsport;
@@ -24,6 +23,7 @@
             $this->_equipe2=$e2;
             $this->_date=$date;
             $this->_vainqueur=$vainqueur;
+            $this->_score = $score;
             $this->_cote=$cote;
         }
         public function get_idMatch(){
@@ -48,6 +48,10 @@
 
         public function get_vainqueur(){
             return $this->_vainqueur; 
+        }
+
+        public function get_score(){
+            return $this->_score;
         }
 
         public function get_cote(){
@@ -76,6 +80,10 @@
 
         public function set_vainqueur(string $vainqueur){
             $this->_id_annonce = $vainqueur;
+        }
+
+        public function set_score(string $score){
+            $this->_score = $score;
         }
 
         public function set_cote(int $cote){

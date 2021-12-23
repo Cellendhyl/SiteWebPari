@@ -31,7 +31,7 @@ class DAOPari{
   public function add() {
 	try{
 		$this->connect();
-		$sql = $this->connexion->prepare("INSERT INTO pari (description,cote,id_sport) VALUES(:description,:cote,:id_sport)");
+		$sql = $this->connexion->prepare("INSERT INTO pari (description,cote,id_sport) VALUES(:description,:cote:id_sport)");
 		$res = $sql -> execute([
     	':description'=> $this->pari->getDescription();
         ':cote'=> $this->pari->getCote()
