@@ -17,6 +17,10 @@
             $this->_id_PariUser = $idPariUser;
             $this->_montant = $montant;
             $this->_gain = $gain;
+            $this->id_parieur = $idParieur;
+            $this->id_pari = $idPari;
+            $this->id_match = $idMatch;
+
         }
 
         public function getIdParieur() {
@@ -43,19 +47,25 @@
             return $this->gain;
         }
 
-        public function setIdPariUser(string $id) {
+        public function setIdPariUser(int $id) {
             $this->_id_PariUser = $id;
         }
     
-        public function setMontant(string $montant){
+        public function setMontant(int $montant){
             $this->_montant = $montant;
         }
         public function setGain(int $age) {
             $this->_gain = $gain;
         }
 
-        public function setGain(int $IDparieur) {
-            $this->id_parieur = $IDparieur;
+        public function setIdParieur(int $idParieur) {
+            $this->id_parieur = $idParieur;
+        }
+        public function setIdMatch(int $idMatch) {
+            $this->id_match = $idMatch;
+        }
+        public function setIdPari(int $idPari) {
+            $this->id_pari = $idPari;
         }
     }
 
