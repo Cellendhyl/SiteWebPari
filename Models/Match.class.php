@@ -55,11 +55,11 @@
             return $this->_cote;
         }
 
-        public function set_id_match(string $idmatch){
+        public function set_id_match( $idmatch){
             $this->_id_match = $idmatch;
         }
 
-        public function set_id_sport(string $idsport){
+        public function set_id_sport( $idsport){
             $this->_id_sport = $idsport;
         }
 
@@ -67,18 +67,22 @@
             $this->_titre = $e1;
         }
 
-        public function set_e2(int $e2){
+        public function set_e2(string $e2){
             $this->_id_annonce = $e2;
         }
 
-        public function set_date(int $date){
+        public function set_date(string $date){
             $this->_id_categ = $date;
         }
 
-        public function set_vainqueur(int $vainqueur){
+        public function set_vainqueur(string $vainqueur){
             $this->_id_annonce = $vainqueur;
         }
 
         public function set_cote(int $cote){
             $this->_id_categ = $cote;
         }
+
+}
+?>
+
