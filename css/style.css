@@ -1,0 +1,390 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+*{
+    font-family: 'Montserrat';
+}
+
+html{
+    scroll-behavior: smooth;
+}
+body{
+  margin:0 auto
+}
+
+header.header{
+  background-color: black;
+}
+header.header img {
+  width:75px;
+}
+
+.all-slide{
+  display: flex;
+
+}
+.images{
+  display: flex;
+  animation-duration: 20s;
+  animation-name: slides;
+  animation-iteration-count: infinite;
+}
+
+#slide{
+  overflow: hidden;
+  margin: 100px auto;
+}
+
+@keyframes slides {
+  0% {
+    transform: translateX(0);
+  }
+  33% {
+    transform: translateX(-740px);
+  }
+  43% {
+    transform: translateX(-740px);
+  }
+  66% {
+    transform: translateX(-1480);
+  }
+  76% {
+    transform: translateX(-1480);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+#search{
+  color: white;
+  padding: 10px;
+  border: 3px solid white;
+  border-radius: 30px;
+  outline: none;
+  width: 50px;
+  padding-left: 20px;
+  background: url('../images/loc1.jpg') right no-repeat;
+  transition: width 2s;
+  -webkit-transition: width 2s;
+  -moz-transition: width 2s;
+  -o-transition: width 2s;
+  -ms-transition:width 2s;
+}
+
+#search:focus{
+  width: 200px;
+}
+
+nav.nav {
+  list-style: none;
+  display: flex;
+  justify-content:space-between;
+}
+nav.nav button {
+  color: white;
+  text-decoration: none;
+  background-color: black;
+  border: none;
+  font-size: 2rem;
+}
+nav.nav li a i{
+  color: white;
+  font-size: 2rem;
+  padding: 20px;
+}
+nav.nav button i{
+  color: white;
+  font-size: 2rem;
+  padding: 15px;
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+  }
+
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid white;
+    border-radius: 2px;
+    z-index: 10;
+    background-color: black;
+    width: 400px;
+    height: 550px;
+    max-width: 80%;
+    max-height: 80%;
+  }
+
+  .modal.active {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .modal-body table th {
+    color: white;
+  }
+
+  .modal-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+  }
+  
+  .modal-header .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .modal-header .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .modal-body {
+    padding: 50px 15px;
+  }
+  .modal-body input {
+    background:white;
+    border: none;
+    margin: 5px;
+    padding: 10px;
+  }
+
+
+  .title{
+    color: white;
+  }
+
+  .modal-body{
+    display: flex;
+    justify-content: center;
+  }
+
+.register{
+  color: white;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 25px;
+}
+
+.register a {
+  text-decoration:none;
+  color: grey;
+  padding-left: 10px;
+}
+  #overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+  }
+  
+  #overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .research {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+  }
+
+  .header-bottom{
+    background: lightgray;
+    width: 100vw;
+    padding:5px 0;
+    text-align: center;
+  }
+  
+  .header-bottom p {
+   font-size: 14px;
+   word-spacing: 2px;
+   text-transform: capitalize;
+  }
+  
+
+  .big-title {
+    margin-top: 3cm;
+    color:black;
+    font-size: 40px;
+    font-family: 'Abril FatFace';
+    font-weight: 100;
+    display: flex;
+    justify-content: center;
+}
+
+.error {
+  color : white;
+}
+
+.text{
+  color:black;
+    font-size: 20px;
+    font-family: 'Abril FatFace';
+    display: flex;
+    justify-content: center;
+}
+.section-title {
+  display: flex;
+  font-size: 50px;
+  font-family: 'Abril Fatface';
+  font-weight: 100;
+  justify-content: center;
+}
+.most-wanted{
+  margin: 100px;
+  margin-top: 7cm;
+}
+.best-sell{
+  min-height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.sell-box{
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  min-width: 350px;
+  height: 500px;
+  flex: 1;
+  margin: 20px;
+}
+
+a.sell-box:hover{
+  transform: scale(1.1);
+  transition: 0.3s all;
+}
+
+.car1 {
+  background-image: url(../images/car1.jpg);
+}
+
+.car2 {
+  background-image: url(../images/car2.jpg);
+}
+
+.car3 {
+  background-image: url(../images/car3.jpg);
+}
+.car4 {
+  background-image: url(../images/shoes1.jpg);
+}
+
+.car5 {
+  background-image: url(../images/shoes2.jpg);
+}
+
+.car6 {
+  background-image: url(../images/iphone12.jpg);
+}
+.car7 {
+  background-image: url(../images/imac.jpg);
+}
+
+.car8 {
+  background-image: url(../images/levis.jpg);
+}
+
+.car-details{
+  position: absolute;
+  width: 100%;
+  bottom:0;
+  background-color: #FFFFFFDF;
+  padding: 5px 20px;
+}
+
+.car-name{
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 3px;
+}
+
+.car-price{
+  color:red;
+  font-weight: 800;
+  line-height: 3px;
+  font-size: 14px;
+
+}
+
+footer{
+  background-color: black;
+  height: auto;
+  width: 100vw;
+  padding-top: 40px;
+  color: white;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.footer-content h3 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  text-transform: capitalize;
+  line-height: 3rem;
+}
+
+.footer-content p {
+  max-width: 500px;
+  margin: 10px auto;
+  line-height: 28px;
+  font-size: 14px;
+}
+.socials{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+}
+.socials li{
+    margin: 0 10px;
+}
+.socials a{
+    text-decoration: none;
+    color: #fff;
+}
+.socials a i{
+    font-size: 1.1rem;
+    transition: color .4s ease;
+
+}
+.socials a:hover i{
+    color: aqua;
+}
+
+.footer-bottom{
+  background: black;
+  width: 100vw;
+  padding:20px 0;
+  text-align: center;
+}
+
+.footer-bottom p {
+ font-size: 14px;
+ word-spacing: 2px;
+ text-transform: capitalize;
+}
