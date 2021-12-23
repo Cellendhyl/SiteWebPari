@@ -1,8 +1,6 @@
 <?php 
 
 
-
-
 class Parieur {
 
     private $_idParieur;
