@@ -1,5 +1,5 @@
 <?php
- include 'define.php';
+ include '../controlleur/define.php';
 
     try{
         $dbco = new PDO("mysql:host=".PDO_HOST, PDO_USER, PDO_PW);
@@ -89,5 +89,6 @@ $db->exec($sql);
 echo 'Table bien créée !</br>';
 
 include  'InsertSport.php';
+include  'InsertAdmin.php';
 
 ?>
