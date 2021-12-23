@@ -31,17 +31,19 @@
           public function add() {
             try{
                 $this->connect();
-                $sql = $this->connexion->prepare("INSERT INTO Matchs (id_sport,equipe1,equipe2,dates,vainqueur,cote) VALUES(:id_sport,:equipe1,:equipe2,:dates,:vainqueur,:cote)");
+                $sql = $this->connexion->prepare("INSERT INTO Matchs (equipe1,equipe2,dates,vainqueur,cote,id_sport) VALUES(:equipe1,:equipe2,:dates,:vainqueur,:cote,:id_sport)");
                 $res = $sql -> execute([
-                    ':id_sport'=>$this->Matchs->get_idSport(),
-                    ':equipe1'=> $this->Matchs->get_e1(), 
-                    ':equipe2'=>$this->Matchs->get_e2(),
-                    ':dates'=>$this->Matchs->get_date()
-                    ':vainqueur'=>$this->Matchs->get_vainqueur(),
-                    ':cote'=>$this->Matchs->get_cote()
+                    ':equipe1'=> $this->match->get_e1(), 
+                    ':equipe2'=>$this->match->get_e2(),
+                    ':dates'=>$this->match->get_date(),
+                    ':vainqueur'=>$this->match->get_vainqueur(),
+                    ':cote'=>$this->match->get_cote(),
+                    ':id_sport'=>$this->match->get_idSport()
                 ]);
+                echo 1;
+                echo $this->match->get_e1();
                 $id = $this->connexion->lastInsertId();
-                $this->match->set_idMatch($id);
+                $this->match->set_id_match($id);
                 $this->connexion = null;
                 return $res;
             }catch (PDOException $e){
@@ -77,12 +79,12 @@
                 $sql = $this->connexion->prepare("UPDATE Matchs SET id_match=:id_match, id_sport=:id_sport, equipe1=:equipe1, equipe2=:equipe2, dates=:dates, vainqueur=:vainqueur,cote=:cote WHERE id_match=:id_match ");
                 $res = $sql -> execute([
                     ':id_match'=>$this->Matchs->get_idMatch(),
-                    ':id_sport'=>$this->Matchs->get_idSport(),
-                    ':equipe1'=> $this->Matchs->get_e1(), 
-                    ':equipe2'=>$this->Matchs->get_e2(),
-                    ':dates'=>$this->Matchs->get_date()
-                    ':vainqueur'=>$this->Matchs->get_vainqueur(),
-                    ':cote'=>$this->Matchs->get_cote()
+                    ':id_sport'=>$this->match->get_idSport(),
+                    ':equipe1'=> $this->match->get_e1(), 
+                    ':equipe2'=>$this->match->get_e2(),
+                    ':dates'=>$this->match->get_date(),
+                    ':vainqueur'=>$this->match->get_vainqueur(),
+                    ':cote'=>$this->match->get_cote()
                 ]);
                 $this->connexion = null;
                 return $res;

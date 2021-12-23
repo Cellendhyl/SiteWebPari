@@ -12,8 +12,7 @@
         private $_cote;
 
     
-        
-
+    
         public function __construct(){
 
         }
