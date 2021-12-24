@@ -16,11 +16,12 @@ if (isset($_POST['identifiant'])&&isset($_POST['mdp'])){
             $_SESSION['ID'] = $result['id'];
             $_SESSION["CONNECT"]="OK";
             $_SESSION["LOGIN"]= $login;
-            header('Location:accueilUser.php'); 
+            header('Location:../View/parieur.php'); 
     }
     else {
+        
         $erreur= "Erreur de login/mot de passe";
-        header('Location:accueil.php?erreur= '.$erreur.' ');
+        echo $erreur;
     }
 }
  ?>

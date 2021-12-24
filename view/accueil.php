@@ -14,14 +14,13 @@
             <nav class="nav">
                 <?php session_start(); 
                 if (isset($_SESSION["CONNECT"])) {
-                    echo '<li><a href=validation.php?afaire=deconnexion><i class="fas fa-door-open"></i></a></li>';
-                    echo '<li><a href="accueilUser.php"><i class="fas fa-address-card"></i></a></li>';
+                    echo '<li><a href=../Controler/deconnexion.php?afaire=deconnexion><i class="fas fa-door-open"></i></a></li>';
+                    echo '<li><a href="parieur.php"><i class="fas fa-address-card"></i></a></li>';
                 }
                 else if (isset($_SESSION["CONNECTADMIN"]))
                 {
-                    echo '<li><a href=validation.php?afaire=deconnexion><i class="fas fa-door-open"></i></a></li>';
-                    echo '<li><a href="accueilAdmin.php"> <i class="fas fa-address-book"></i></a></li>';
-                    echo '<li><a href="accueilUser.php"><i class="fas fa-address-card"></i></a></li>';
+                    echo '<li><a href=../Controler/login.php?afaire=deconnexion><i class="fas fa-door-open"></i></a></li>';
+                    echo '<li><a href="Admin.php"> <i class="fas fa-address-book"></i></a></li>';
                 }
                 else 
                 {
@@ -40,7 +39,7 @@
                     <th> Usager </th>
                     <form action="../Controler/login.php" method="POST" id="login">
                     <tr>
-                        <td><input type="text" name="identifiant" placeholder="Votre identifiant" required/></td>
+                        <td><input type="text" name="identifiant" placeholder="Votre identifiant"  required/></td>
                     </tr>
                     <tr>
                         <td><input type=password name="mdp" placeholder="Votre mot de passe" required/></td>
@@ -52,16 +51,14 @@
                         <td><a href="mdpOublie.php">Mot de passe oublié ?</a></td>
                         <td><a href="inscription.php">Rejoignez-nous</a></td>
                     </tr>
-                    <th><?php
-                    if(isset($_GET['erreur'])){
-                        echo '<p>'.$_GET['erreur'].'<p>';
-                    }
-                    ?></th>   
+                    <th>
+                        <div id="erreur"></div>
+                   </th>   
                     </form>
                 </table>
                     
                 </div>
-                <script src="../Controler/login.js"></script>
+                
                 
                 
             </nav>
@@ -91,6 +88,7 @@
         ?>
         <div id ="result"></div>
     </body>
+    <script src="../Controler/login.js"></script>
     <script src="../Controler/match.js"></script>
 </html>
 

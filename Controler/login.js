@@ -28,15 +28,14 @@ var gethttpRequest = function (){
 }
 
 var form = document.querySelector('#login')
-var result = document.getElementById('bienvenue')
+var erreur = document.getElementById('erreur')
 form.addEventListener('submit',function(e){
     e.preventDefault()
-    result.innerHTML = 'Chargement...'
     var data = new FormData(form)
     var xhr = gethttpRequest()
     xhr.onreadystatechange = function(){
         if (xhr.readyState === 4){
-            result.innerHTML = xhr.responseText
+            erreur.innerHTML = xhr.responseText
         }
     }
     xhr.open('POST',form.getAttribute('action'),true)

@@ -78,7 +78,9 @@ class Parieur {
         $this->_capital = $capital;
     }
 
-    
+    public function __toString(){
+        return "Voici vos données personnelles : Nom : $this->_nom </br> Prenom : $this->_prenom </br>Age : $this->_age </br>Identifiant : $this->_identifiant </br>Capital : $this->_capital </br>";
+    }
 }
 
 ?>
