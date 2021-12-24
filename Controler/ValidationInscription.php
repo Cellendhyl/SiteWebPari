@@ -1,6 +1,9 @@
 <?php 
 
-    extract($_POST);
+if (isset($_POST['identifiant'])||isset($_POST['nom'])||isset($_POST['prenom'])||isset($_POST['mdp'])||isset($_POST['age'])){
+
+
+        extract($_POST);
         require("../Controler/connexionBDD.php");
         require("../Models/Parieur.class.php");
         require("../Models/DAOParieur.class.php");      
@@ -23,6 +26,9 @@
         else {
             echo "identifiant déja utilisé.";
         }
-    
+    }
+    else {
+        header('Location:../view/accueil.php');
+    }
  
 ?>

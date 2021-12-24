@@ -16,6 +16,8 @@ class Parieur {
     }
 
     public function create($nom,$prenom,$age,$identifiant,$mdp){
+        $this->_idParieur = 0;
+        $this->_capital = 0;
         $this->_nom = $nom;
         $this->_prenom = $prenom;
         $this->_age = $age;

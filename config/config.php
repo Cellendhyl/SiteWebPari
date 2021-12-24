@@ -69,8 +69,7 @@ echo 'Table bien créée !</br>';
 $sql = "CREATE TABLE PariPossible(
     id_pari INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     description TEXT NOT NULL,
-    id_sport INT UNSIGNED NOT NULL,
-    FOREIGN KEY (id_sport) REFERENCES Sport(id_sport))";
+    cote INT NOT NULL)";
 
 $db->exec($sql);
 echo 'Table bien créée !</br>';
@@ -79,6 +78,7 @@ $sql = "CREATE TABLE PariUser(
     id_pariUser INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     montant INT NOT NULL,
     gain INT NOT NULL, 
+    EquipeSelect VARCHAR(50) NOT NULL,
     id_parieur INT UNSIGNED NOT NULL,
     id_pari INT UNSIGNED NOT NULL,
     id_match INT UNSIGNED NOT NULL,

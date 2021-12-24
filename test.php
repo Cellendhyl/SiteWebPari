@@ -1,12 +1,14 @@
 <?php
 require_once("Controler/define.php");
-include("Models/Parieur.class.php");
-include("Models/DAOParieur.class.php");
+include("Models/PariPossible.class.php");
+include("Models/DAOPariPossible.class.php");
 
 
-$parieur= new Parieur();
-$parieur->create('mb','mb',21,'mb','mb');
-$parieurDAO = new DAOParieur($parieur);
-$parieurDAO->add();
+$PariPossible= new PariPossible();
+$PariPossible->create(1,"gagne",2);
+$PariPossibleDAO = new DAOPari($PariPossible);
+$PariPossibleDAO->add()
+ 
 
 ?>
+

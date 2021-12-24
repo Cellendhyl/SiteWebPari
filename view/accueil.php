@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
- "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
- <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-    <head>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../css/style.css"> 
         <link rel="stylesheet" href="../css/all.min.css">
@@ -39,7 +38,7 @@
                    
                 <table>
                     <th> Usager </th>
-                    <form action="validation.php" method="POST">
+                    <form action="validation.php" method="POST" id="login">
                     <tr>
                         <td><input type="text" name="login" placeholder="Votre login" required/></td>
                     </tr>

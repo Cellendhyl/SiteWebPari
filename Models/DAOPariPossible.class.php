@@ -1,6 +1,5 @@
 <?php
 
-
 class DAOPari{
   private $pari;
   private $connexion;
@@ -31,11 +30,10 @@ class DAOPari{
   public function add() {
 	try{
 		$this->connect();
-		$sql = $this->connexion->prepare("INSERT INTO pari (description,cote,id_sport) VALUES(:description,:cote:id_sport)");
+		$sql = $this->connexion->prepare("INSERT INTO paripossible (description,cote) VALUES (:description,:cote)");
 		$res = $sql -> execute([
     	':description'=> $this->pari->getDescription(),
-        ':cote'=> $this->pari->getCote(),
-        ':id_sport'=> $this->pari->getIdSport()
+        ':cote'=> $this->pari->getCote()
     	]);
 		$id = $this->connexion->lastInsertId();
 		$this->pari->setIdPari($id);
@@ -51,7 +49,7 @@ class DAOPari{
    public function delete() {  
         try{
 		    $this->connect();
-		    $query = " delete from pari where id_pari=:id "; 
+		    $query = " delete from paripossible where id_pari=:id "; 
 		    $data = array( 
 		        ':id'=>$this->pari->getIdPari()
 		    );
@@ -68,12 +66,11 @@ class DAOPari{
     public function update() {  
 	    try{
 		    $this->connect();
-		    $sql = $this->connexion->prepare("UPDATE pari SET description=:description,cote=:cote,id_sport=:id_sport WHERE id_pari=:id ");
+		    $sql = $this->connexion->prepare("UPDATE paripossible SET description=:description,cote=:cote WHERE id_pari=:id ");
 		    $res = $sql -> execute([
 			    ':id'=>$this->pari->getIdPari(),
     		    ':description'=> $this->pari->getDescription(),
-                ':cote'=> $this->pari->getCote(),
-                ':id_sport'=> $this->pari->getIdSport()
+                ':cote'=> $this->pari->getCote()
     	    ]);
 		    $this->connexion = null;
 		    return $res;

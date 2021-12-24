@@ -30,7 +30,7 @@
 
     <div class="inputs">
       
-        <form method="post" action="../Controler/inscription.php" id="inscri">
+        <form method="post" action="../Controler/ValidationInscription.php" id="inscri">
             <input type="text" name="nom" id="nom" placeholder="Votre nom" required ></br>
             <input type="text" name="prenom" id="prenom" placeholder="Votre prenom" required ></br>
             <input type="text" name="age" id="age" placeholder="Votre age" required></br>
@@ -48,10 +48,7 @@
             <input type=password name="reponse" id="reponse" placeholder="Votre réponse" required  ><br/>
             <button type="submit" name="send" value="S'inscrire !">S'inscrire !</button>
         </form>
-    </div>
-    
-
-    <?php if (isset($_GET['notificationUser'])) echo $_GET['notificationUser']; ?>
+</div>
 
 </div>
     
