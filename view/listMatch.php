@@ -6,7 +6,7 @@
         while ($match = $reponse->fetch())    //fetch() itérateur
         {
             $m = new Match();
-            $m->create($match['id_match'],$match['id_sport'],$match['equipe1'],$match['equipe2'],$match['date'],$match['vainqueur'],$match['score'],$match['cote']);
+            $m->create($match['id_sport'],$match['equipe1'],$match['equipe2'],$match['date'],$match['cote']);
             echo "<ul>";
             echo '<li><a class="match" href="listMatch.php?sport='.$_GET['sport'].'">'.$m->__toString().'</a></li>';
             echo "</ul>";

@@ -24,7 +24,7 @@
             return $this->match;
          }
          
-         public function set_idMatch($m) {
+         public function setMatch($m) {
               $this->match = $m;
          }
 

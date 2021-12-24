@@ -78,7 +78,7 @@ $sql = "CREATE TABLE PariUser(
     id_pariUser INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     montant INT NOT NULL,
     gain INT NOT NULL, 
-    EquipeSelect VARCHAR(50) NOT NULL,
+    EquipeSelect VARCHAR(50),
     id_parieur INT UNSIGNED NOT NULL,
     id_pari INT UNSIGNED NOT NULL,
     id_match INT UNSIGNED NOT NULL,
@@ -91,5 +91,6 @@ echo 'Table bien créée !</br>';
 
 include  'InsertSport.php';
 include  'InsertAdmin.php';
+include  'InsertMatch.php';
 
 ?>

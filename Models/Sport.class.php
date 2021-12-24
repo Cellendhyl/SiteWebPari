@@ -7,8 +7,8 @@ class Sport {
 
     public function __construc(){}
 
-    public function create($id,$nom){
-        $this->_id = $id;
+    public function create($nom){
+        $this->_id = 0;
         $this->_nom = $nom;
     }
 

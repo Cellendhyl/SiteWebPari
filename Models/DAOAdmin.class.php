@@ -31,11 +31,14 @@ class DAOAdmin{
   public function add() {
 	try{
 		$this->connect();
-		$sql = $this->connexion->prepare("INSERT INTO admin (description,cote,id_sport) VALUES(:description,:cote,:id_sport)");
+		$options = [
+			'cost' => 12,
+		];
+		$password = password_hash($this->admin->getMdp(), PASSWORD_BCRYPT, $options);
+		$sql = $this->connexion->prepare("INSERT INTO Admin (identifiant,mdp) VALUES(:identifiant,:mdp)");
 		$res = $sql -> execute([
-    	':description'=> $this->admin->getDescription(),
-        ':cote'=> $this->admin->getCote(),
-        ':id_sport'=> $this->admin->getIdSport()
+    	':identifiant'=> $this->admin->getIdentifiant(),
+        ':mdp'=> $password
     	]);
 		$id = $this->connexion->lastInsertId();
 		$this->admin->setIdAdmin($id);
@@ -68,12 +71,15 @@ class DAOAdmin{
     public function update() {  
 	    try{
 		    $this->connect();
-		    $sql = $this->connexion->prepare("UPDATE admin SET description=:description,cote=:cote,id_sport=:id_sport WHERE id_admin=:id ");
+			$options = [
+				'cost' => 12,
+			];
+			$password = password_hash($this->admin->getMdp(), PASSWORD_BCRYPT, $options);
+		    $sql = $this->connexion->prepare("UPDATE admin SET identifiant=:identifiant,mdp=:mdp WHERE id_admin=:id ");
 		    $res = $sql -> execute([
 			    ':id'=>$this->admin->getIdAdmin(),
-    		    ':description'=> $this->admin->getDescription(),
-                ':cote'=> $this->admin->getCote(),
-                ':id_sport'=> $this->admin->getIdSport()
+				':identifiant'=> $this->admin->getIdentifiant(),
+				':mdp'=> $password
     	    ]);
 		    $this->connexion = null;
 		    return $res;

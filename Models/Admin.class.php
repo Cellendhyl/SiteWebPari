@@ -10,8 +10,8 @@
     
         public function __construct(){  }
 
-        public function create($id,$identifiant,$mdp){
-            $this->_id=$id;
+        public function create($identifiant,$mdp){
+            $this->_id=0;
             $this->_identifiant=$identifiant;
             $this->_mdp=$mdp;
         }
@@ -21,7 +21,7 @@
         }
 
         public function getIdentifiant(){
-            return $this->_id_sport; 
+            return $this->_identifiant; 
         }
 
         public function getMdp(){
@@ -32,12 +32,12 @@
             $this->_id = $id;
         }
 
-        public function set_id_sport(string $idsport){
-            $this->_id_sport = $idsport;
+        public function setMdp($mdp){
+            $this->_mdp = $mdp;
         }
 
-        public function set_e1(string $e1){
-            $this->_titre = $e1;
+        public function setIdentifiant($identifiant){
+            $this->_identifiant = $identifiant;
         }
     }
 ?>

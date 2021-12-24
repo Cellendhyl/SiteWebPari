@@ -38,12 +38,12 @@
                    
                 <table>
                     <th> Usager </th>
-                    <form action="validation.php" method="POST" id="login">
+                    <form action="../Controler/login.php" method="POST" id="login">
                     <tr>
-                        <td><input type="text" name="login" placeholder="Votre login" required/></td>
+                        <td><input type="text" name="identifiant" placeholder="Votre identifiant" required/></td>
                     </tr>
                     <tr>
-                        <td><input type=password name="password" placeholder="Votre mot de passe" required/></td>
+                        <td><input type=password name="mdp" placeholder="Votre mot de passe" required/></td>
                     </tr>
                     <tr>
                         <td><input type="submit" value="Se connecter !" name="valider" placeholder=""/></td>
@@ -56,13 +56,12 @@
                     if(isset($_GET['erreur'])){
                         echo '<p>'.$_GET['erreur'].'<p>';
                     }
-                    ?></th>
+                    ?></th>   
                     </form>
-
                 </table>
                     
                 </div>
-                
+                <script src="../Controler/login.js"></script>
                 
                 
             </nav>

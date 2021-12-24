@@ -31,6 +31,10 @@ class DAOParieur{
   public function add() {
 	try{
 		$this->connect();
+		$options = [
+			'cost' => 12,
+		];
+		$password = password_hash($this->parieur->getMdp(), PASSWORD_BCRYPT, $options);
 		$this->parieur->setCapital(10000);
 		$sql = $this->connexion->prepare("INSERT INTO Parieur (nom,prenom,age,identifiant,mdp,capital) VALUES(:nom,:prenom,:age,:identifiant,:mdp,:capital)");
 		$res = $sql -> execute([
@@ -38,7 +42,7 @@ class DAOParieur{
     	':prenom'=> $this->parieur->getPrenom(),
     	':age'=>$this->parieur->getAge(),
     	':identifiant'=> $this->parieur->getIdentifiant(), 
-    	':mdp'=>$this->parieur->getMdp(),
+    	':mdp'=>$password,
     	':capital'=>$this->parieur->getCapital()
     	]);
 		$id = $this->connexion->lastInsertId();
@@ -74,6 +78,10 @@ class DAOParieur{
       
 	try{
 		$this->connect();
+		$options = [
+			'cost' => 12,
+		];
+		$password = password_hash($this->parieur->getMdp(), PASSWORD_BCRYPT, $options);
 		$sql = $this->connexion->prepare("UPDATE Parieur SET nom=:nom, prenom=:prenom, age=:age, identifiant=:identifiant, mdp=:mdp, capital=:capital WHERE id_parieur=:id ");
 		echo $this->parieur->getIdParieur();
 		$res = $sql -> execute([
@@ -82,7 +90,7 @@ class DAOParieur{
     		':prenom'=> $this->parieur->getPrenom(),
     		':age'=>$this->parieur->getAge(),
     		':identifiant'=> $this->parieur->getIdentifiant(), 
-    		':mdp'=>$this->parieur->getMdp(),
+    		':mdp'=>$password,
     		':capital'=>$this->parieur->getCapital()
     	]);
 		$this->connexion = null;

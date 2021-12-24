@@ -8,8 +8,8 @@ class PariPossible {
 
     public function __construc(){}
 
-    public function create($id,$description,$cote){
-        $this->_id = $id;
+    public function create($description,$cote){
+        $this->_id = 0;
         $this->_description = $description;
         $this->_cote = $cote;
     }

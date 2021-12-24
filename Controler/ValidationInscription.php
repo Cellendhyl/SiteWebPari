@@ -1,6 +1,6 @@
 <?php 
 
-if (isset($_POST['identifiant'])||isset($_POST['nom'])||isset($_POST['prenom'])||isset($_POST['mdp'])||isset($_POST['age'])){
+if (isset($_POST['identifiant'])&&isset($_POST['nom'])&&isset($_POST['prenom'])&&isset($_POST['mdp'])&&isset($_POST['age'])){
 
 
         extract($_POST);
@@ -21,7 +21,8 @@ if (isset($_POST['identifiant'])||isset($_POST['nom'])||isset($_POST['prenom'])|
             $parieur = new Parieur(); 
             $parieur->create($nom,$prenom,$age,$identifiant,$passwordHash);
             $parieurDAO = new DAOParieur($parieur);
-            $parieurDAO->add();   
+            $parieurDAO->add();
+            header('Location:../view/accueil.php');   
         }
         else {
             echo "identifiant déja utilisé.";

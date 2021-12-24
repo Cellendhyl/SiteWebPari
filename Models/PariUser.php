@@ -13,8 +13,8 @@
         
         }
     
-        public function create($idPariUser,$montant,$gain){
-            $this->_id_PariUser = $idPariUser;
+        public function create($montant,$gain,$idParieur,$idPari,$idMatch){
+            $this->_id_PariUser = 0;
             $this->_montant = $montant;
             $this->_gain = $gain;
             $this->id_parieur = $idParieur;
