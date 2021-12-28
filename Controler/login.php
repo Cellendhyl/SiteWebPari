@@ -1,8 +1,6 @@
 <?php 
 
 if (isset($_POST['identifiant'])&&isset($_POST['mdp'])){
-    
-
     extract($_POST);
     require("../Controler/connexionBDD.php");
     $reponse = $db->prepare('SELECT * FROM Parieur where identifiant =:identifiant');
@@ -13,13 +11,12 @@ if (isset($_POST['identifiant'])&&isset($_POST['mdp'])){
     $hashpassword =  $result['mdp'];
     if($result && password_verify($mdp,$hashpassword)){
             session_start();
-            $_SESSION['ID'] = $result['id'];
+            $_SESSION['ID'] = $result['id_parieur'];
             $_SESSION["CONNECT"]="OK";
-            $_SESSION["LOGIN"]= $login;
-            header('Location:../View/parieur.php'); 
+            $_SESSION["LOGIN"]= $identifiant;
+            echo "ok";
     }
-    else {
-        
+    else {  
         $erreur= "Erreur de login/mot de passe";
         echo $erreur;
     }
