@@ -14,6 +14,7 @@
         require("../Controler/isSetConnect.php");
         require("../Controler/connexionBDD.php");
         require("../Models/Parieur.class.php");
+        require("../Models/PariPossible.class.php");
     ?>
 
     <section class="top-page">
@@ -22,7 +23,7 @@
             <nav class="nav">
                 <li><a>BONJOUR <?php echo $_SESSION["LOGIN"];?><a></li>
                 <li><a href="accueil.php"><i class="fas fa-home"></i></a></li>
-                <li><a href=validation.php?afaire=deconnexion><i class="fas fa-door-open"></i></a></li>
+                <li><a href=../Controler/deconnexion.php?afaire=deconnexion><i class="fas fa-door-open"></i></a></li>
             </nav>
         </header>
 
@@ -40,11 +41,26 @@
 $q = $db-> query("SELECT * FROM Parieur WHERE id_parieur ='".$_SESSION['ID']."'");
 while ($parieur = $q -> fetch())
 {
-    $m = new Parieur();
-    $m->create($parieur['nom'],$parieur['prenom'],$parieur['age'],$parieur['identifiant']);
-    echo $m->__toSring();
-    echo "<br>date d'inscription :".$parieur['inscription']; 
-}        
+    $p = new Parieur();
+    $p->create($parieur['nom'],$parieur['prenom'],$parieur['age'],$parieur['identifiant'],$parieur['mdp']);
+    $p->setCapital($parieur['capital']);
+    $result = $p->__toString();
+    echo $result;
+    echo "<br>date d'inscription :".$parieur['inscription'];
+
+}    
+
+$q = $db-> query("SELECT * FROM PariUser WHERE id_parieur ='".$_SESSION['ID']."'");
+while ($pariUser = $q -> fetch())
+{
+    $p = new P();
+    $p->create($parieur['nom'],$parieur['prenom'],$parieur['age'],$parieur['identifiant'],$parieur['mdp']);
+    $p->setCapital($parieur['capital']);
+    $result = $p->__toString();
+    echo $result;
+    echo "<br>date d'inscription :".$parieur['inscription'];
+     
+}   
 ?>  
 </div>
 

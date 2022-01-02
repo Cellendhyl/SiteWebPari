@@ -35,18 +35,17 @@ form.addEventListener('submit',function(e){
     var xhr = gethttpRequest()
     xhr.onreadystatechange = function(){
         if (xhr.readyState === 4){
-            if (xhr.responseText != "ok"){
+            if (xhr.responseText != ""){
                 alert(xhr.responseText)
                 erreur.innerHTML = xhr.responseText
             }
             else {
-                window.location.href("../View/parieur.php")
+               window.location.href = "../View/parieur.php";
             }
         }
     }
     xhr.open('POST',form.getAttribute('action'),true)
     xhr.send(data)
-    sqcdeqdgZEHQETJ
 })
 
 

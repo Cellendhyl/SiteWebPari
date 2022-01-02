@@ -14,7 +14,7 @@ if (isset($_POST['identifiant'])&&isset($_POST['mdp'])){
             $_SESSION['ID'] = $result['id_parieur'];
             $_SESSION["CONNECT"]="OK";
             $_SESSION["LOGIN"]= $identifiant;
-            echo "ok";
+            
     }
     else {  
         $erreur= "Erreur de login/mot de passe";
