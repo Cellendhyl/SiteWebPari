@@ -1,1 +1,3 @@
 cd C:/'Program Files (x86)'/'EasyPHP-Devserver-17'/'eds-www'/L3/SiteWebPari
+
+cd C:/'Program Files (x86)'/'EasyPHP-Devserver-17'/'eds-www'/SiteWebPari
