@@ -19,7 +19,7 @@
                 }
                 else if (isset($_SESSION["CONNECTADMIN"]))
                 {
-                    echo '<li><a href=../Controler/login.php?afaire=deconnexion><i class="fas fa-door-open"></i></a></li>';
+                    echo '<li><a href=../Controler/deconnexion.php?afaire=deconnexion><i class="fas fa-door-open"></i></a></li>';
                     echo '<li><a href="Admin.php"> <i class="fas fa-address-book"></i></a></li>';
                 }
                 else 
@@ -87,8 +87,13 @@
         echo "<br>"; 
         ?>
         <div id ="result"></div>
+        <div id ="result2"></div>
+        <script src="../Controler/login.js"></script>
+        <script src="../Controler/match.js"></script>
     </body>
-    <script src="../Controler/login.js"></script>
-    <script src="../Controler/match.js"></script>
+ 
+   
+  
+
 </html>
 

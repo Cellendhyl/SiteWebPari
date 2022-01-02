@@ -91,7 +91,7 @@
         }
 
         public function __toString(){
-            return "les donnée du match du $this->_date : $this->_equipe1 vs $this->_equipe2 pour une cote de : $this->_cote";
+            return " $this->_equipe1 vs $this->_equipe2";
         }
 }
 ?>

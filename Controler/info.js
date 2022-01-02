@@ -26,8 +26,8 @@ var gethttpRequest = function (){
 
     return httpRequest;
 }
-var form = document.querySelector('#inscri')
-var result = document.getElementById('result')
+var form = document.querySelector('#info')
+var result = document.getElementById('result2')
 form.addEventListener('submit',function(e){
     e.preventDefault()
     result.innerHTML = 'Chargement...'
