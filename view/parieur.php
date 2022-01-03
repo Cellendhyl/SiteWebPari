@@ -21,7 +21,7 @@
 
         <header class="header">
             <nav class="nav">
-                <li><a>BONJOUR <?php echo $_SESSION["LOGIN"];?><a></li>
+                <li><a>Bonjour <?php echo $_SESSION["LOGIN"];?><a></li>
                 <li><a href="accueil.php"><i class="fas fa-home"></i></a></li>
                 <li><a href=../Controler/deconnexion.php?afaire=deconnexion><i class="fas fa-door-open"></i></a></li>
             </nav>

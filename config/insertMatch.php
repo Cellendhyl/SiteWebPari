@@ -5,11 +5,11 @@ include("../Models/Match.class.php");
 include("../Models/DAOMatch.class.php");
 
 $m1 = new Match();
-$m1->create(1,'Barça','Real','31-12-2021',2);
+$m1->create(1,'Barça','Real','31-12-2021',2,3,5);
 $m2 = new Match();
-$m2->create(1,'PSG','OM','31-12-2021',3);
+$m2->create(1,'PSG','OM','31-12-2021',3,1,6);
 $m3 = new Match();
-$m3->create(2,'Warrior','Rockets','31-12-2021',3);
+$m3->create(2,'Warrior','Rockets','31-12-2021',3,2,4);
 $DAOm = new DAOMatch($m1);
 $DAOm->add();
 $DAOm->setMatch($m2);

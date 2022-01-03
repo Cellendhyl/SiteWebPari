@@ -87,7 +87,9 @@
         echo "<br>"; 
         ?>
         <div id ="result"></div>
-        <div id ="result2"></div>
+        <div id ="result2">
+        <div id ="result3"></div>
+        </div>
         <script src="../Controler/login.js"></script>
         <script src="../Controler/match.js"></script>
     </body>

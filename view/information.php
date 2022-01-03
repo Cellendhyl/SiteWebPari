@@ -13,6 +13,11 @@ echo '<table>';
             echo '<th colspan="2">'.$m->__toString().'</th>';
         echo '</tr>';
     echo '</thead>';
+    echo '<tbody>';
+        echo '<tr>';
+            echo '<td colspan="2">'."Cote :"." ".$match['cote'].'</td>';
+        echo '</tr>';
+    echo '</tbody>';
 echo '</table>';
 }
 ?>

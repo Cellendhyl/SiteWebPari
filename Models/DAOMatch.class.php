@@ -31,13 +31,15 @@
           public function add() {
             try{
                 $this->connect();
-                $sql = $this->connexion->prepare("INSERT INTO Matchs (equipe1,equipe2,date,vainqueur,cote,score,id_sport) VALUES(:equipe1,:equipe2,:date,:vainqueur,:cote,:score,:id_sport)");
+                $sql = $this->connexion->prepare("INSERT INTO Matchs (equipe1,equipe2,date,vainqueur,cotev1,cotev2,coteNul,score,id_sport) VALUES(:equipe1,:equipe2,:date,:vainqueur,:cotev1,:cotev2,:coteNul,:score,:id_sport)");
                 $res = $sql -> execute([
                     ':equipe1'=> $this->match->get_e1(), 
                     ':equipe2'=>$this->match->get_e2(),
                     ':date'=>$this->match->get_date(),
                     ':vainqueur'=>$this->match->get_vainqueur(),
-                    ':cote'=>$this->match->get_cote(),
+                    ':cotev1'=>$this->match->get_cotev1(),
+                    ':cotev2'=>$this->match->get_cotev2(),
+                    ':coteNul'=>$this->match->get_coteNul(),
                     ':score'=>$this->match->get_score(),
                     ':id_sport'=>$this->match->get_idSport()
                 ]);
@@ -76,7 +78,7 @@
       
             try{
                 $this->connect();
-                $sql = $this->connexion->prepare("UPDATE Matchs SET id_match=:id_match, id_sport=:id_sport, equipe1=:equipe1, equipe2=:equipe2, date=:date, vainqueur=:vainqueur,score =:score, cote=:cote WHERE id_match=:id_match ");
+                $sql = $this->connexion->prepare("UPDATE Matchs SET id_match=:id_match, id_sport=:id_sport, equipe1=:equipe1, equipe2=:equipe2, date=:date, vainqueur=:vainqueur,score =:score, cotev1=:cotev1,cotev2=:cotev2,coteNul=:coteNul WHERE id_match=:id_match ");
                 $res = $sql -> execute([
                     ':id_match'=>$this->Matchs->get_idMatch(),
                     ':id_sport'=>$this->match->get_idSport(),
@@ -85,7 +87,9 @@
                     ':date'=>$this->match->get_date(),
                     ':vainqueur'=>$this->match->get_vainqueur(),
                     ':score'=>$this->match->get_score(),
-                    ':cote'=>$this->match->get_cote()
+                    ':cotev1'=>$this->match->get_cotev1(),
+                    ':cotev2'=>$this->match->get_cotev2(),
+                    ':coteNul'=>$this->match->get_coteNul()
                 ]);
                 $this->connexion = null;
                 return $res;
