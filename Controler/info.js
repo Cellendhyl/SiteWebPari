@@ -26,21 +26,37 @@ var gethttpRequest = function (){
 
     return httpRequest;
 }
-var form = document.querySelector('#info')
-var result = document.getElementById('result2')
-form.addEventListener('submit',function(e){
-    e.preventDefault()
-    result.innerHTML = 'Chargement...'
-    var data = new FormData(form)
-    var xhr = gethttpRequest()
-    xhr.onreadystatechange = function(){
-        if (xhr.readyState === 4){
-            result.innerHTML = xhr.responseText
-        }
+var button =[]
+var links = document.querySelectorAll('.paris')
+var result = document.getElementById('res')
+for (var i = 0; i< links.length; i++){
+    var link = links[i]
+    link.addEventListener('click',function (e){
+        e.preventDefault()
+        result.innerHTML = somme(button)
+    })
+}
+
+function somme(liste){
+    var res =0;
+    for (var i = 0; i< liste.length; i++){
+        res+=parseInt(liste[i])
     }
-    xhr.open('POST',form.getAttribute('action'),true)
-    xhr.send(data)
-})
+    return res;
+}
+
+function getValue(value,id){
+    var index = button.indexOf(value);
+    if(index==-1){
+        document.getElementById(id).style.backgroundColor="red";
+        button.push(value);
+    }
+    else{
+        button.splice(index, 1);
+        document.getElementById(id).style.backgroundColor="white";
+    }
+    
+}
 
 
 
