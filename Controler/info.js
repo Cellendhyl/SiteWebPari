@@ -33,7 +33,7 @@ for (var i = 0; i< links.length; i++){
     var link = links[i]
     link.addEventListener('click',function (e){
         e.preventDefault()
-        result.innerHTML = somme(button)
+       // result.innerHTML = somme(button)
     })
 }
 
@@ -45,17 +45,34 @@ function somme(liste){
     return res;
 }
 
-function getValue(value,id){
-    var index = button.indexOf(value);
+function getValue(cote,id){
+    var index = button.indexOf(cote);
+    var id1 = id+"a";
+    var id2 = id+"b";
+    var a = ";";
+    var div = document.createElement("div");
     if(index==-1){
         document.getElementById(id).style.backgroundColor="red";
-        button.push(value);
-    }
+        button.push(cote);
+        div.innerHTML = 
+        '<input id='+ id1 + ' type="number" name='+ id2 +' onkeyup="gain('+ cote + ',this.name,this.value);"  placeholder="Entrez une valeur ici" value="">' +
+        '<div id='+ id2 + ' name = "gain"></div>';
+        result.appendChild(div);
+        var a = document.getElementById(id2);
+        console.log(a)
+        }
     else{
         button.splice(index, 1);
+        var div = document.getElementById(id1)
+        var div2 = document.getElementById(id2)
+        div.remove()
+        div2.remove()
         document.getElementById(id).style.backgroundColor="white";
     }
     
+}
+function gain(cote,id,montant){
+    document.getElementById(id).innerHTML ="le gain possible est de : " +  montant*cote;
 }
 
 
