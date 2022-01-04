@@ -1,9 +1,8 @@
 <?php
 session_start(); 
-if (isset($_SESSION["CONNECT"])) {
-   
-        require("Controler/connexionBDD.php");
-        require("Models/Match.class.php");
+        require("../Controler/isSetConnect.php");
+        require("../Controler/connexionBDD.php");
+        require("../Models/Match.class.php");
         $reponse = $db->query('SELECT * FROM Matchs where id_match =1');
         $reponse->execute(); 
         while ($match = $reponse->fetch())    //fetch() itérateur
