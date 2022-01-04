@@ -32,7 +32,8 @@ if (isset($_SESSION["CONNECT"])) {
     }
 }     
 ?>
-
 <div id="res"></div>
+<form method="post" action="test.php" id="ez">
+</form>
 <script src="../Controler/info.js"></script>
 
