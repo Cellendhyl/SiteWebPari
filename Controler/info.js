@@ -26,40 +26,37 @@ var gethttpRequest = function (){
 
     return httpRequest;
 }
-var button =[]
+var button = [];
+var cpt = 0;
 var links = document.querySelectorAll('.paris')
 var result = document.getElementById('res')
+var form = document.getElementById('ez')
 for (var i = 0; i< links.length; i++){
     var link = links[i]
     link.addEventListener('click',function (e){
         e.preventDefault()
-       result.innerHTML = 'input type"button" name="ok"';
+        if(cpt==0){
+            form.innerHTML = '<button type="submit" name="valider" value="valider" onclic="verif();">valider</button>' + form.innerHTML;
+            cpt++;
+        }
+        
     })
-}
-
-function somme(liste){
-    var res =0;
-    for (var i = 0; i< liste.length; i++){
-        res+=parseInt(liste[i])
-    }
-    return res;
 }
 
 function getValue(cote,id){
     var index = button.indexOf(cote);
     var id1 = id+"a";
     var id2 = id+"b";
-    var a = ";";
+    var id3 = id2+"c";
     var div = document.createElement("div");
     if(index==-1){
         document.getElementById(id).style.backgroundColor="red";
         button.push(cote);
         div.innerHTML = 
         '<input id='+ id1 + ' type="number" name='+ id2 +' onkeyup="gain('+ cote + ',this.name,this.value);"  placeholder="Entrez une valeur ici" value="">' +
-        '<div id='+ id2 + ' name = "gain"></div>';
-        result.appendChild(div);
-        var a = document.getElementById(id2);
-        console.log(a)
+        '<div id='+ id2 + ' name = "gain" value=""></div>' + 
+        '<input id='+ id3 + ' name="xxx[]" type="hidden" value=""></input>';
+        form.appendChild(div);
         }
     else{
         button.splice(index, 1);
@@ -71,9 +68,13 @@ function getValue(cote,id){
     }
     
 }
-function gain(cote,id,montant){
-    document.getElementById(id).innerHTML ="le gain possible est de : " +  montant*cote;
+function gain(cote,id2,montant){
+    document.getElementById(id2).innerHTML ="le gain possible est de : " +  montant*cote;
+    document.getElementById(id2+"c").value = montant*cote;
+    console.log(document.getElementById(id2+"c").value)
 }
+
+
 
 
 
