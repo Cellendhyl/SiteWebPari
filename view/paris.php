@@ -28,8 +28,7 @@ session_start();
             echo '</tr>';
         echo '</tbody>';
     echo '</table>';
-    }
-}     
+    }   
 ?>
 <div id="res"></div>
 <form method="post" action="test.php" id="ez">
