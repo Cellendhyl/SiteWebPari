@@ -33,7 +33,7 @@ for (var i = 0; i< links.length; i++){
     var link = links[i]
     link.addEventListener('click',function (e){
         e.preventDefault()
-       // result.innerHTML = somme(button)
+       result.innerHTML = 'input type"button" name="ok"';
     })
 }
 
