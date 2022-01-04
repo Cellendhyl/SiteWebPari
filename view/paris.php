@@ -1,5 +1,4 @@
 <?php
-session_start(); 
         require("../Controler/isSetConnect.php");
         require("../Controler/connexionBDD.php");
         require("../Models/Match.class.php");
