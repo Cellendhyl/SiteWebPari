@@ -93,5 +93,6 @@ echo 'Table bien créée !</br>';
 include  'InsertSport.php';
 include  'InsertAdmin.php';
 include  'InsertMatch.php';
+include  'InsertPari.php';
 
 ?>

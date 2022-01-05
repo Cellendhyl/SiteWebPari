@@ -1,6 +1,6 @@
 <?php
 
-class DAOPari{
+class DAOPariPossible{
   private $pari;
   private $connexion;
   
@@ -19,11 +19,11 @@ class DAOPari{
 	}  	  
   }
 
-  public function getpari() {
+  public function getPariPossible() {
      return $this->pari;
   }
   
-  public function setpari($p) {
+  public function setPariPossible($p) {
        $this->pari = $p;
   }
   //version simplifiée d'une dao avec une méthode add et des parametres nommés et bindValue
