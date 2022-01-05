@@ -31,21 +31,11 @@
     <div class="inputs">
       
         <form method="post" action="../Controler/ValidationInscription.php" id="inscri">
-            <input type="text" name="nom" id="nom" placeholder="Votre nom" required ></br>
+            <input type="text" name="nom" id="nom" onchange=verif(this.value) placeholder="Votre nom" value="" required ></br>
             <input type="text" name="prenom" id="prenom" placeholder="Votre prenom" required ></br>
-            <input type="text" name="age" id="age" placeholder="Votre age" required></br>
+            <input type="number" name="age" id="age" placeholder="Votre age" required></br>
             <input type="text" minlength="5" name="identifiant" id="identifiant" placeholder="Entrez unidentifiant 5 caractères" required></br><div id ="result"></div>
             <input type=password minlength="5" name="mdp" id="mdp" placeholder="Entrez un mot de passe d'au moins 5 caractères" required></br>
-            <p>Question et Réponse secrète<p><br>
-            <select name = "question" id = "question">
-                <option value="Le nom de votre chat ?">Le nom de votre chat</option>
-                <option value="Le nom de votre ville ?">Le nom de votre ville</option>
-                <option value="Le nom de votre rue ?">Le nom de votre rue</option>
-                <option value="Votre 1er voiture ?">1er voiture"</option>
-                <option value="Votre 1er animal de compagnie ?">Votre 1er animal de compagnie</option>
-                <option value="La couleur de vos yeux ?">La couleur de vos yeux</option>
-            </select>
-            <input type=password name="reponse" id="reponse" placeholder="Votre réponse" required  ><br/>
             <button type="submit" name="send" value="S'inscrire !">S'inscrire !</button>
         </form>
 </div>
