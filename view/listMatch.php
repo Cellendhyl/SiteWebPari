@@ -12,7 +12,7 @@
             {
                 echo'<div>';
                 echo'<input type="radio" id="match" name="match" value=""'.$match['id_match'].'"" checked> ';
-                echo'<label for="match">'.$match['equipe1']." vs ".$match['equipe2']."  Cote victoire de ".$match['equipe1']." :"." ".$match['cotev1']."   Cote victoire de ".$match['equipe2']." :"." ".$match['cotev2']."   Cote match nul "." :"." ".$match['coteNul'].'</label>';
+                echo'<label for="match">'.$match['equipe1']." vs ".$match['equipe2'].'</label>';
                 echo'</div>';
             }
             $reponse->closeCursor();        //fermeture du curseur d'analyse des resultats
