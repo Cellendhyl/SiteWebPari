@@ -1,11 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../css/style2.css"> 
+        <link rel="stylesheet" href="../css/all.min.css">
+        <script defer src="../Controler/app.js"></script>
+        <title>Document</title>
+    </head> 
+    <body>
+    
+    <section class="top-page">
+
+        <header class="header">
+            <nav class="nav">
+                <li><a href="accueil.php"><i class="fas fa-home"></i></a></li>
+                <li><a href=../Controler/deconnexion.php?afaire=deconnexion><i class="fas fa-door-open"></i></a></li>
+            </nav>
+        </header>
+
+        <div class="header-bottom">
+            <a class="button" href="Recherche.php">RECHERCHER</a>
+        </div>
+    </section>
+
+
 <?php
         require("../Controler/isSetConnect.php");
         require("../Controler/connexionBDD.php");
         require("../Models/Match.class.php");
         $reponse = $db->query('SELECT * FROM Matchs where id_match =1');
+        $idmatch = 1;
         $reponse->execute(); 
-        while ($match = $reponse->fetch())    //fetch() itérateur
-        {
+        $match = $reponse->fetch();
         echo '<table>';
         echo '<thead>';
             echo '<tr>';
@@ -27,10 +53,19 @@
             echo '</tr>';
         echo '</tbody>';
     echo '</table>';
-    }   
+       
 ?>
-<div id="res"></div>
-<form method="post" action="test.php" id="ez">
+
+
+<form method="post" class="pari" action="../Controler/validationParis.php" id="ez">
+<?php
+    echo '<input id="idmatch" name="idmatch" type="hidden" value='.$idmatch.'></input>';
+?>
 </form>
-<script src="../Controler/info.js"></script>
+<div id="res"></div>
+<script src="../Controler/pari.js"></script>
+
+
+</body>
+</html>
 

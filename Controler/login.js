@@ -36,7 +36,6 @@ form.addEventListener('submit',function(e){
     xhr.onreadystatechange = function(){
         if (xhr.readyState === 4){
             if (xhr.responseText != ""){
-                alert(xhr.responseText)
                 erreur.innerHTML = xhr.responseText
             }
             else {

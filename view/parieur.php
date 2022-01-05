@@ -14,7 +14,7 @@
         require("../Controler/isSetConnect.php");
         require("../Controler/connexionBDD.php");
         require("../Models/Parieur.class.php");
-        require("../Models/PariPossible.class.php");
+        require("../Models/PariUser.php");
     ?>
 
     <section class="top-page">
@@ -38,9 +38,12 @@
 <h2 class="section-title">Votre Profils </h2>
 <?php
 
+if(isSet($_GET['notif'])){
+    echo '<br>'.$_GET['notif'].'<br>'; 
+}
 $q = $db-> query("SELECT * FROM Parieur WHERE id_parieur ='".$_SESSION['ID']."'");
-while ($parieur = $q -> fetch())
-{
+$parieur = $q->fetch();
+
     $p = new Parieur();
     $p->create($parieur['nom'],$parieur['prenom'],$parieur['age'],$parieur['identifiant'],$parieur['mdp']);
     $p->setCapital($parieur['capital']);
@@ -48,22 +51,28 @@ while ($parieur = $q -> fetch())
     echo $result;
     echo "<br>date d'inscription :".$parieur['inscription'];
 
-}    
+    ?>
 
+    <form method="post" action="../Controler/supprimerPari.php" id="listPari">
+        <select  name="pari" id="pari">     
+            <option value="">--List de vos Paris--</option>
+    <?php
+    echo '<br>liste des paris : <br>';
 $q = $db-> query("SELECT * FROM PariUser WHERE id_parieur ='".$_SESSION['ID']."'");
 while ($pariUser = $q -> fetch())
 {
-    $p = new P();
-    $p->create($parieur['nom'],$parieur['prenom'],$parieur['age'],$parieur['identifiant'],$parieur['mdp']);
-    $p->setCapital($parieur['capital']);
-    $result = $p->__toString();
-    echo $result;
-    echo "<br>date d'inscription :".$parieur['inscription'];
-     
+    $pUser = new PariUser();
+    $pUser->create($pariUser['montant'],$pariUser['gain'],$_SESSION['ID'],$pariUser['id_pari'],$pariUser['id_match']);
+    echo '<option value="'.$pariUser['id_pariUser'].'">montant : '.$pUser->getMontant() .'  et   gain : '.$pUser->getGain().'</option>'; 
 }   
-?>  
-</div>
+?>   
+    </select>
+    <button type="submit" name="supprimer" value="supprimer">Supprimer le pari</button>
 
+</form>
+    <br> 
+    <div id ="result2"></div>
+</div>
 </body>
-   
+<script src="../Controler/supprimerPari.js"></script>
 </html>

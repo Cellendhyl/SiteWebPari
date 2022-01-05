@@ -2,12 +2,12 @@
  
     class PariUser{
 
-        private _id_PariUser;
-        private _montant;
-        private _gain;
-        private id_parieur;
-        private id_pari ;
-        private id_match;
+        private $_id_PariUser;
+        private $_montant;
+        private $_gain;
+        private $_id_parieur;
+        private $_id_pari ;
+        private $_id_match;
 
         public function __contruct(){
         
@@ -17,54 +17,54 @@
             $this->_id_PariUser = 0;
             $this->_montant = $montant;
             $this->_gain = $gain;
-            $this->id_parieur = $idParieur;
-            $this->id_pari = $idPari;
-            $this->id_match = $idMatch;
+            $this->_id_parieur = $idParieur;
+            $this->_id_pari = $idPari;
+            $this->_id_match = $idMatch;
 
         }
 
         public function getIdParieur() {
-            return $this->id_parieur;
+            return $this->_id_parieur;
         }
 
         public function getIdpari() {
-            return $this->id_pari;
+            return $this->_id_pari;
         }
 
         public function getIdmatch() {
-            return $this->id_match;
+            return $this->_id_match;
         }
 
         public function getId_PariUser(){
-            return $this->idPariUser;
+            return $this->_idPariUser;
         }
     
         public function getMontant() {
-           return $this->montant;
+           return $this->_montant;
         }
     
         public function getGain() {
-            return $this->gain;
+            return $this->_gain;
         }
 
-        public function setIdPariUser(int $id) {
+        public function setIdPariUser($id) {
             $this->_id_PariUser = $id;
         }
     
-        public function setMontant(int $montant){
+        public function setMontant($montant){
             $this->_montant = $montant;
         }
-        public function setGain(int $age) {
+        public function setGain($age) {
             $this->_gain = $gain;
         }
 
-        public function setIdParieur(int $idParieur) {
+        public function setIdParieur($idParieur) {
             $this->id_parieur = $idParieur;
         }
-        public function setIdMatch(int $idMatch) {
+        public function setIdMatch($idMatch) {
             $this->id_match = $idMatch;
         }
-        public function setIdPari(int $idPari) {
+        public function setIdPari($idPari) {
             $this->id_pari = $idPari;
         }
     }

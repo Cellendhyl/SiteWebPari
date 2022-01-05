@@ -23,6 +23,8 @@ class DAOParieur{
   public function getParieur() {
      return $this->parieur;
   }
+
+  
   
   public function setParieur($a) {
        $this->parieur = $a;
@@ -81,16 +83,14 @@ class DAOParieur{
 		$options = [
 			'cost' => 12,
 		];
-		$password = password_hash($this->parieur->getMdp(), PASSWORD_BCRYPT, $options);
 		$sql = $this->connexion->prepare("UPDATE Parieur SET nom=:nom, prenom=:prenom, age=:age, identifiant=:identifiant, mdp=:mdp, capital=:capital WHERE id_parieur=:id ");
-		echo $this->parieur->getIdParieur();
 		$res = $sql -> execute([
 			':id'=>$this->parieur->getIdParieur(),
     		':nom'=> $this->parieur->getNom(), 
     		':prenom'=> $this->parieur->getPrenom(),
     		':age'=>$this->parieur->getAge(),
     		':identifiant'=> $this->parieur->getIdentifiant(), 
-    		':mdp'=>$password,
+    		':mdp'=> $this->parieur->getMdp(),
     		':capital'=>$this->parieur->getCapital()
     	]);
 		$this->connexion = null;

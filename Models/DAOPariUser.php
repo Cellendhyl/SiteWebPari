@@ -10,6 +10,8 @@ class DAOPariUser{
 	$this->connexion = null;
   }
 
+ 
+
   public function connect(){
 	  
 	try{
@@ -40,7 +42,7 @@ class DAOPariUser{
         ':id_match'=> $this->pariUser->getIdmatch()
     	]);
 		$id = $this->connexion->lastInsertId();
-		$this->pari->setIdPari($id);
+		$this->pariUser->setIdPari($id);
 		$this->connexion = null;
 		return $res;
 	}catch (PDOException $e){
@@ -71,9 +73,8 @@ class DAOPariUser{
 	    try{
 		    $this->connect();
 		    $sql = $this->connexion->prepare("UPDATE PariUser SET montant=:montant,gain=:gain,id_parieur=:id_parieur,id_pari=:id_pari,id_match=:id_match WHERE id_pariUser=:id_pariUser ");
-		    echo $this->pari->getIdpari();
 		    $res = $sql -> execute([
-				':id_pariUser'=>$this->pariUser->getId_PariUser()
+				':id_pariUser'=>$this->pariUser->getId_PariUser(),
 			    ':montant'=> $this->pariUser->getMontant(),
         		':gain'=> $this->pariUser->getGain(),
 				':id_parieur'=> $this->pariUser->getIdParieur(),
@@ -87,5 +88,6 @@ class DAOPariUser{
 		    die();
 	    }
     }
+}
 
 ?>
