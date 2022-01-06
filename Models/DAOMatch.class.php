@@ -105,7 +105,7 @@
                 $this->connect();
                 $sql = $this->connexion->prepare("UPDATE Matchs SET fini =:fini WHERE id_match=:id_match ");
                 $res = $sql -> execute([
-                    ':fini'=>true
+                    ':fini'=>1
                 ]);
                 $this->connexion = null;
                 return $res;

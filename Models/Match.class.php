@@ -30,7 +30,7 @@
             $this->_cotev2=$cotev2;
             $this->_coteNul=$coteNul;
             $this->_score = "";
-            $this->_fini = false;
+            $this->_fini = 0;
         }
         public function get_idMatch(){
             return $this->_id_match; 

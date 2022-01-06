@@ -41,7 +41,7 @@ $sql = "CREATE TABLE Matchs(
     cotev2 INT NOT NULL,
     coteNul INT NOT NULL,
     score VARCHAR(255),
-    fini BOOLEAN NOT NULL,
+    fini TINYINT NOT NULL,
     id_sport INT UNSIGNED NOT NULL,
     FOREIGN KEY (id_sport) REFERENCES Sport(id_sport))";
     
