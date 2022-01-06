@@ -38,9 +38,6 @@
 <h2 class="section-title">Votre Profils </h2>
 <?php
 
-if(isSet($_GET['notif'])){
-    echo '<br>'.$_GET['notif'].'<br>'; 
-}
 $q = $db-> query("SELECT * FROM Parieur WHERE id_parieur ='".$_SESSION['ID']."'");
 $parieur = $q->fetch();
 
@@ -75,4 +72,9 @@ while ($pariUser = $q -> fetch())
 </div>
 </body>
 <script src="../Controler/supprimerPari.js"></script>
+<?php
+if(isSet($_GET['notif'])){
+    echo '<br>'.$_GET['notif'].'<br>'; 
+}
+?>
 </html>

@@ -28,8 +28,7 @@
         require("../Controler/isSetConnect.php");
         require("../Controler/connexionBDD.php");
         require("../Models/Match.class.php");
-        $reponse = $db->query('SELECT * FROM Matchs where id_match =1');
-        $idmatch = 1;
+        $reponse = $db->query('SELECT * FROM Matchs where id_match ='.$_POST['match'].'');
         $reponse->execute(); 
         $match = $reponse->fetch();
         echo '<table>';
@@ -59,7 +58,7 @@
 
 <form method="post" class="pari" action="../Controler/validationParis.php" id="ez">
 <?php
-    echo '<input id="idmatch" name="idmatch" type="hidden" value='.$idmatch.'></input>';
+    echo '<input id="idmatch" name="idmatch" type="hidden" value='.$_POST['match'].'></input>';
 ?>
 </form>
 <div id="res"></div>

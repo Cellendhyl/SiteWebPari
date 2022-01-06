@@ -10,8 +10,8 @@ require("../Models/DAOParieur.class.php");
 
 $capital = $_SESSION['CAPITAL'];
 $idparieur = $_SESSION['ID'];
-
-$somme =0;
+if(isSet($_POST['xxx'])&& isSet($_POST['pari'])&& isSet($_POST['idmatch'])){
+    $somme =0;
     for ($i = 0; $i <count($_POST['xxx']);$i++){
         $idPari = $_POST['pari'][$i];
         $somme+= $_POST[$idPari];
@@ -43,6 +43,11 @@ $somme =0;
     else {
         echo 'capital insufisant <br>';
     }  
+}
+else {
+    header("Location : ../View/accueil.php");
+}
+
 
 
 
