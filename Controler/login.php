@@ -8,18 +8,19 @@ if (isset($_POST['identifiant'])&&isset($_POST['mdp'])){
         ':identifiant' => $identifiant
     ]);   
     $result = $reponse->fetch();
-    echo $identifiant.' et '. $result['identifiant'];
-    $result =  $reponse ->  rowCount();
-    echo $result;
-    if ($result ==1){
+    $taille =  $reponse ->  rowCount();
+    if ($taille ==1){
         $hashpassword =  $result['mdp'];
+        echo password_verify($mdp,$hashpassword);
+        echo 'et '. $hashpassword.' et ' . $mdp;
         if(password_verify($mdp,$hashpassword)){
                 session_start();
                 $_SESSION['ID'] = $result['id_parieur'];
                 $_SESSION["CONNECT"]="OK";
                 $_SESSION["LOGIN"]= $identifiant;
                 $_SESSION["CAPITAL"]=$result['capital'];
-                
+                echo password_verify($mdp,$hashpassword);
+                echo 'et '. $hashpassword.' et ' . $mdp;
         }
         else {  
             echo "Erreur de login/mot de passe";
