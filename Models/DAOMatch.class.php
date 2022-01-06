@@ -31,7 +31,7 @@
           public function add() {
             try{
                 $this->connect();
-                $sql = $this->connexion->prepare("INSERT INTO Matchs (equipe1,equipe2,date,vainqueur,cotev1,cotev2,coteNul,score,id_sport) VALUES(:equipe1,:equipe2,:date,:vainqueur,:cotev1,:cotev2,:coteNul,:score,:id_sport)");
+                $sql = $this->connexion->prepare("INSERT INTO Matchs (equipe1,equipe2,date,vainqueur,cotev1,cotev2,coteNul,score,fini,id_sport) VALUES(:equipe1,:equipe2,:date,:vainqueur,:cotev1,:cotev2,:coteNul,:score,:fini,:id_sport)");
                 $res = $sql -> execute([
                     ':equipe1'=> $this->match->get_e1(), 
                     ':equipe2'=>$this->match->get_e2(),
@@ -41,6 +41,7 @@
                     ':cotev2'=>$this->match->get_cotev2(),
                     ':coteNul'=>$this->match->get_coteNul(),
                     ':score'=>$this->match->get_score(),
+                    ':fini'=>$this->match->get_fini(),
                     ':id_sport'=>$this->match->get_idSport()
                 ]);
                 
@@ -90,6 +91,21 @@
                     ':cotev1'=>$this->match->get_cotev1(),
                     ':cotev2'=>$this->match->get_cotev2(),
                     ':coteNul'=>$this->match->get_coteNul()
+                ]);
+                $this->connexion = null;
+                return $res;
+            }catch (PDOException $e){
+                print "Erreur !: " . $e->getMessage() . "<br/>";
+                die();
+            }
+          }
+
+          public function fini(){
+            try{
+                $this->connect();
+                $sql = $this->connexion->prepare("UPDATE Matchs SET fini =:fini WHERE id_match=:id_match ");
+                $res = $sql -> execute([
+                    ':fini'=>true;
                 ]);
                 $this->connexion = null;
                 return $res;

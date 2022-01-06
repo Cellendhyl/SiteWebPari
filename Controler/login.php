@@ -8,17 +8,26 @@ if (isset($_POST['identifiant'])&&isset($_POST['mdp'])){
         ':identifiant' => $identifiant
     ]);   
     $result = $reponse->fetch();
-    $hashpassword =  $result['mdp'];
-    if($result && password_verify($mdp,$hashpassword)){
-            session_start();
-            $_SESSION['ID'] = $result['id_parieur'];
-            $_SESSION["CONNECT"]="OK";
-            $_SESSION["LOGIN"]= $identifiant;
-            $_SESSION["CAPITAL"]=$result['capital'];
-            
+    echo $identifiant.' et '. $result['identifiant'];
+    $result =  $reponse ->  rowCount();
+    echo $result;
+    if ($result ==1){
+        $hashpassword =  $result['mdp'];
+        if(password_verify($mdp,$hashpassword)){
+                session_start();
+                $_SESSION['ID'] = $result['id_parieur'];
+                $_SESSION["CONNECT"]="OK";
+                $_SESSION["LOGIN"]= $identifiant;
+                $_SESSION["CAPITAL"]=$result['capital'];
+                
+        }
+        else {  
+            echo "Erreur de login/mot de passe";
+        }
     }
-    else {  
-        echo "Erreur de login/mot de passe";
+    else {
+        echo "aucun compte trouvé";
     }
+   
 }
  ?>
