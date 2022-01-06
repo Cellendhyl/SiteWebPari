@@ -29,7 +29,7 @@ class DAOParieur{
   public function setParieur($a) {
        $this->parieur = $a;
   }
-  //version simplifiée d'une dao avec une méthode add et des parametres nommés et bindValue
+  
   public function add() {
 	try{
 		$this->connect();
