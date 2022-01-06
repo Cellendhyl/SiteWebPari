@@ -24,6 +24,7 @@
                 }
                 else 
                 {
+                    echo '<li><a href="accueil.php"><i class="fas fa-redo-alt"></i></a></li>';
                     echo '<button data-modal-target="#modal"><i class="far fa-user-circle"></i></button>';
                 }
                 ?>
@@ -64,29 +65,30 @@
             </nav>
         <div id="overlay"></div>
 
-        <div class="header-bottom">
+        <!-- <div class="header-bottom">
             <form action="">
                 <input type="search" name="search" id="search" placeholder="Rechercher...">
             </form>
-        </div>
+        </div> -->
 
         </header>
-        <h2 class="big-title">Les Differents sport : </h2>
-        <?php
-        require("../Controler/connexionBDD.php");
-
-        $reponse = $db->query('SELECT * FROM Sport');
-        $reponse->execute();        
-        while ($sport = $reponse->fetch())    //fetch() itérateur
-        {
-            echo "<ul>";
-            echo '<li><a class="sport" href="listMatch.php?sport='.$sport['id_sport'].'">'.$sport['nom'].'</a></li>';
-            echo "</ul>";
-        }
-        $reponse->closeCursor();        //fermeture du curseur d'analyse des resultats
-        echo "<br>"; 
-        ?>
-        <div id ="result"></div>
+            <?php
+                    require("../Controler/connexionBDD.php");
+                    $reponse = $db->query('SELECT * FROM Sport');
+                    $reponse->execute();     
+                    echo "<div class='listsport'>";
+                    echo "<h4>SPORTS</h4>";
+                    while ($sport = $reponse->fetch())    //fetch() itérateur
+                    {
+                            echo "<ul>";
+                            echo '<li><i class="fas fa-'.$sport['nom'].'-ball"></i><a class="sport" href="listMatch.php?sport='.$sport['id_sport'].'">'.$sport['nom'].'</a></li>';
+                            echo "</ul>";
+                    }
+                    $reponse->closeCursor();     //fermeture du curseur d'analyse des resultats
+                    echo "<h4>LISTE DES MATCHS</h4>";
+                    echo "</div>";
+                    echo "<div id ='result'></div>";
+            ?>
         </div>
         <script src="../Controler/login.js"></script>
         <script src="../Controler/match.js"></script>
