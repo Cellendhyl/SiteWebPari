@@ -1,7 +1,7 @@
 <?php
         require("../Controler/connexionBDD.php");
         require("../Models/Match.class.php");
-        $reponse = $db->query('SELECT * FROM Matchs where id_sport = '.$_GET['sport'].'and fini=0');
+        $reponse = $db->query('SELECT * FROM Matchs where id_sport = '.$_GET['sport'].' AND fini=0');
         $reponse->execute(); 
 ?>
 
