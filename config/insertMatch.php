@@ -30,7 +30,7 @@ $hm3 = new Match();
 $hm3->create(3,'Angleterre','Allemagne','15-01-2022',4,2,1);
 
 
-$sql = $db->prepare("INSERT INTO Matchs (equipe1,equipe2,date,vainqueur,cotev1,cotev2,coteNul,score,id_sport) VALUES(:equipe1,:equipe2,:date,:vainqueur,:cotev1,:cotev2,:coteNul,:score,:id_sport)");
+$sql = $db->prepare("INSERT INTO Matchs (equipe1,equipe2,date,vainqueur,cotev1,cotev2,coteNul,score,fini,id_sport) VALUES(:equipe1,:equipe2,:date,:vainqueur,:cotev1,:cotev2,:coteNul,:score,:fini,:id_sport)");
 $res = $sql -> execute([
             ':equipe1'=> $fm1->get_e1(), 
             ':equipe2'=>$fm1->get_e2(),
@@ -40,10 +40,11 @@ $res = $sql -> execute([
             ':cotev2'=>$fm1->get_cotev2(),
             ':coteNul'=>$fm1->get_coteNul(),
             ':score'=>$fm1->get_score(),
+            ':fini'=>$fm1->get_fini(),
             ':id_sport'=>$fm1->get_idSport()
             ]);
 
-$sql = $db->prepare("INSERT INTO Matchs (equipe1,equipe2,date,vainqueur,cotev1,cotev2,coteNul,score,id_sport) VALUES(:equipe1,:equipe2,:date,:vainqueur,:cotev1,:cotev2,:coteNul,:score,:id_sport)");
+$sql = $db->prepare("INSERT INTO Matchs (equipe1,equipe2,date,vainqueur,cotev1,cotev2,coteNul,score,fini,id_sport) VALUES(:equipe1,:equipe2,:date,:vainqueur,:cotev1,:cotev2,:coteNul,:score,:fini,:id_sport)");
 $res = $sql -> execute([
             ':equipe1'=> $fm2->get_e1(), 
             ':equipe2'=>$fm2->get_e2(),
@@ -53,10 +54,11 @@ $res = $sql -> execute([
             ':cotev2'=>$fm2->get_cotev2(),
             ':coteNul'=>$fm2->get_coteNul(),
             ':score'=>$fm2->get_score(),
+            ':fini'=>$fm2->get_fini(),
             ':id_sport'=>$fm2->get_idSport()
             ]);
 
-$sql = $db->prepare("INSERT INTO Matchs (equipe1,equipe2,date,vainqueur,cotev1,cotev2,coteNul,score,id_sport) VALUES(:equipe1,:equipe2,:date,:vainqueur,:cotev1,:cotev2,:coteNul,:score,:id_sport)");
+$sql = $db->prepare("INSERT INTO Matchs (equipe1,equipe2,date,vainqueur,cotev1,cotev2,coteNul,score,fini,id_sport) VALUES(:equipe1,:equipe2,:date,:vainqueur,:cotev1,:cotev2,:coteNul,:score,:fini,:id_sport)");
 $res = $sql -> execute([
             ':equipe1'=> $fm3->get_e1(), 
             ':equipe2'=>$fm3->get_e2(),
@@ -66,10 +68,11 @@ $res = $sql -> execute([
             ':cotev2'=>$fm3->get_cotev2(),
             ':coteNul'=>$fm3->get_coteNul(),
             ':score'=>$fm3->get_score(),
+            ':fini'=>$fm3->get_fini(),
             ':id_sport'=>$fm3->get_idSport()
             ]);
 
-$sql = $db->prepare("INSERT INTO Matchs (equipe1,equipe2,date,vainqueur,cotev1,cotev2,coteNul,score,id_sport) VALUES(:equipe1,:equipe2,:date,:vainqueur,:cotev1,:cotev2,:coteNul,:score,:id_sport)");
+$sql = $db->prepare("INSERT INTO Matchs (equipe1,equipe2,date,vainqueur,cotev1,cotev2,coteNul,score,fini,id_sport) VALUES(:equipe1,:equipe2,:date,:vainqueur,:cotev1,:cotev2,:coteNul,:score,:fini,:id_sport)");
 $res = $sql -> execute([
             ':equipe1'=> $hm1->get_e1(), 
             ':equipe2'=>$hm1->get_e2(),
@@ -79,10 +82,11 @@ $res = $sql -> execute([
             ':cotev2'=>$hm1->get_cotev2(),
             ':coteNul'=>$hm1->get_coteNul(),
             ':score'=>$hm1->get_score(),
+            ':fini'=>$hm1->get_fini(),
             ':id_sport'=>$hm1->get_idSport()
             ]);
 
-$sql = $db->prepare("INSERT INTO Matchs (equipe1,equipe2,date,vainqueur,cotev1,cotev2,coteNul,score,id_sport) VALUES(:equipe1,:equipe2,:date,:vainqueur,:cotev1,:cotev2,:coteNul,:score,:id_sport)");
+$sql = $db->prepare("INSERT INTO Matchs (equipe1,equipe2,date,vainqueur,cotev1,cotev2,coteNul,score,fini,id_sport) VALUES(:equipe1,:equipe2,:date,:vainqueur,:cotev1,:cotev2,:coteNul,:score,:fini,:id_sport)");
 $res = $sql -> execute([
             ':equipe1'=> $hm2->get_e1(), 
             ':equipe2'=>$hm2->get_e2(),
@@ -92,10 +96,11 @@ $res = $sql -> execute([
             ':cotev2'=>$hm2->get_cotev2(),
             ':coteNul'=>$hm2->get_coteNul(),
             ':score'=>$hm2->get_score(),
+            ':fini'=>$hm2->get_fini(),
             ':id_sport'=>$hm2->get_idSport()
             ]);
 
-$sql = $db->prepare("INSERT INTO Matchs (equipe1,equipe2,date,vainqueur,cotev1,cotev2,coteNul,score,id_sport) VALUES(:equipe1,:equipe2,:date,:vainqueur,:cotev1,:cotev2,:coteNul,:score,:id_sport)");
+$sql = $db->prepare("INSERT INTO Matchs (equipe1,equipe2,date,vainqueur,cotev1,cotev2,coteNul,score,fini,id_sport) VALUES(:equipe1,:equipe2,:date,:vainqueur,:cotev1,:cotev2,:coteNul,:score,:fini,:id_sport)");
 $res = $sql -> execute([
             ':equipe1'=> $hm3->get_e1(), 
             ':equipe2'=>$hm3->get_e2(),
@@ -105,10 +110,11 @@ $res = $sql -> execute([
             ':cotev2'=>$hm3->get_cotev2(),
             ':coteNul'=>$hm3->get_coteNul(),
             ':score'=>$hm3->get_score(),
+            ':fini'=>$hm3->get_fini(),
             ':id_sport'=>$hm3->get_idSport()
             ]);
 
-$sql = $db->prepare("INSERT INTO Matchs (equipe1,equipe2,date,vainqueur,cotev1,cotev2,coteNul,score,id_sport) VALUES(:equipe1,:equipe2,:date,:vainqueur,:cotev1,:cotev2,:coteNul,:score,:id_sport)");
+$sql = $db->prepare("INSERT INTO Matchs (equipe1,equipe2,date,vainqueur,cotev1,cotev2,coteNul,score,fini,id_sport) VALUES(:equipe1,:equipe2,:date,:vainqueur,:cotev1,:cotev2,:coteNul,:score,:fini,:id_sport)");
 $res = $sql -> execute([
             ':equipe1'=> $bm1->get_e1(), 
             ':equipe2'=>$bm1->get_e2(),
@@ -118,10 +124,11 @@ $res = $sql -> execute([
             ':cotev2'=>$bm1->get_cotev2(),
             ':coteNul'=>$bm1->get_coteNul(),
             ':score'=>$bm1->get_score(),
+            ':fini'=>$bm1->get_fini(),
             ':id_sport'=>$bm1->get_idSport()
             ]);
 
-$sql = $db->prepare("INSERT INTO Matchs (equipe1,equipe2,date,vainqueur,cotev1,cotev2,coteNul,score,id_sport) VALUES(:equipe1,:equipe2,:date,:vainqueur,:cotev1,:cotev2,:coteNul,:score,:id_sport)");
+$sql = $db->prepare("INSERT INTO Matchs (equipe1,equipe2,date,vainqueur,cotev1,cotev2,coteNul,score,fini,id_sport) VALUES(:equipe1,:equipe2,:date,:vainqueur,:cotev1,:cotev2,:coteNul,:score,:fini,:id_sport)");
 $res = $sql -> execute([
             ':equipe1'=> $bm2->get_e1(), 
             ':equipe2'=>$bm2->get_e2(),
@@ -131,10 +138,11 @@ $res = $sql -> execute([
             ':cotev2'=>$bm2->get_cotev2(),
             ':coteNul'=>$bm2->get_coteNul(),
             ':score'=>$bm2->get_score(),
+            ':fini'=>$bm2->get_fini(),
             ':id_sport'=>$bm2->get_idSport()
             ]);
 
-$sql = $db->prepare("INSERT INTO Matchs (equipe1,equipe2,date,vainqueur,cotev1,cotev2,coteNul,score,id_sport) VALUES(:equipe1,:equipe2,:date,:vainqueur,:cotev1,:cotev2,:coteNul,:score,:id_sport)");
+$sql = $db->prepare("INSERT INTO Matchs (equipe1,equipe2,date,vainqueur,cotev1,cotev2,coteNul,score,fini,id_sport) VALUES(:equipe1,:equipe2,:date,:vainqueur,:cotev1,:cotev2,:coteNul,:score,:fini,:id_sport)");
 $res = $sql -> execute([
             ':equipe1'=> $bm3->get_e1(), 
             ':equipe2'=>$bm3->get_e2(),
@@ -144,6 +152,7 @@ $res = $sql -> execute([
             ':cotev2'=>$bm3->get_cotev2(),
             ':coteNul'=>$bm3->get_coteNul(),
             ':score'=>$bm3->get_score(),
+            ':fini'=>$bm3->get_fini(),
             ':id_sport'=>$bm3->get_idSport()
             ]);
                 
