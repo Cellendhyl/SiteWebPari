@@ -11,8 +11,6 @@ if (isset($_POST['identifiant'])&&isset($_POST['mdp'])){
     $taille =  $reponse ->  rowCount();
     if ($taille ==1){
         $hashpassword =  $result['mdp'];
-        echo password_verify($mdp,$hashpassword);
-        echo 'et '. $hashpassword.' et ' . $mdp;
         if(password_verify($mdp,$hashpassword)){
                 session_start();
                 $_SESSION['ID'] = $result['id_parieur'];

@@ -17,9 +17,8 @@ if (isset($_POST['identifiant'])&&isset($_POST['nom'])&&isset($_POST['prenom'])&
             $options = [
                 'cost' => 12,
             ];
-            $passwordHash = password_hash($mdp, PASSWORD_BCRYPT, $options); 
             $parieur = new Parieur(); 
-            $parieur->create($nom,$prenom,$age,$identifiant,$passwordHash);
+            $parieur->create($nom,$prenom,$age,$identifiant,$mdp);
             $parieurDAO = new DAOParieur($parieur);
             $parieurDAO->add();  
         }
