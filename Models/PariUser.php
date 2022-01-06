@@ -23,20 +23,20 @@
 
         }
 
-        public function getIdParieur() {
+        public function getId_Parieur() {
             return $this->_id_parieur;
         }
 
-        public function getIdpari() {
+        public function getId_Pari() {
             return $this->_id_pari;
         }
 
-        public function getIdmatch() {
+        public function getId_Match() {
             return $this->_id_match;
         }
 
         public function getId_PariUser(){
-            return $this->_idPariUser;
+            return $this->_id_PariUser;
         }
     
         public function getMontant() {
@@ -59,13 +59,13 @@
         }
 
         public function setIdParieur($idParieur) {
-            $this->id_parieur = $idParieur;
+            $this->_id_parieur = $idParieur;
         }
         public function setIdMatch($idMatch) {
-            $this->id_match = $idMatch;
+            $this->_id_match = $idMatch;
         }
         public function setIdPari($idPari) {
-            $this->id_pari = $idPari;
+            $this->_id_pari = $idPari;
         }
     }
 

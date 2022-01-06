@@ -94,11 +94,11 @@
             $this->_date = $date;
         }
 
-        public function set_vainqueur(string $vainqueur){
+        public function set_vainqueur( $vainqueur){
             $this->_vainqueur = $vainqueur;
         }
 
-        public function set_score(string $score){
+        public function set_score( $score){
             $this->_score = $score;
         }
 
@@ -111,7 +111,7 @@
         public function set_coteNul(int $coteNul){
             $this->_coteNul = $coteNul;
         }
-        public function set_fini(bool $fini){
+        public function set_fini( $fini){
             $this->_fini = $fini;
         }
 
