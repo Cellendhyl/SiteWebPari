@@ -12,7 +12,6 @@
 <section class="top-page">
         <header class="header">
             <nav class="nav">
-                <li><a href="map.php"><i class="far fa-compass"></i></a></li>
                 <li><a href="accueil.php"><i class="fas fa-home"></i></a></li>
 
 
@@ -33,9 +32,9 @@
         <form method="post" action="../Controler/ValidationInscription.php" id="inscri">
             <input type="text" name="nom" id="nom" onchange=verif(this.value) placeholder="Votre nom" value="" required ></br>
             <input type="text" name="prenom" id="prenom" placeholder="Votre prenom" required ></br>
-            <input type="number" name="age" id="age" placeholder="Votre age" required></br>
-            <input type="text" minlength="5" name="identifiant" id="identifiant" placeholder="Entrez unidentifiant 5 caractères" required></br><div id ="result"></div>
-            <input type=password minlength="5" name="mdp" id="mdp" placeholder="Entrez un mot de passe d'au moins 5 caractères" required></br>
+            <input type="text" name="age" id="age" placeholder="Votre age" required></br>
+            <input type="text" minlength="5" name="identifiant" id="identifiant" placeholder="Identifiant" required></br><div id ="result"></div>
+            <input type=password minlength="5" name="mdp" id="mdp" placeholder="Mot de passe" required></br>
             <button type="submit" name="send" value="S'inscrire !">S'inscrire !</button>
         </form>
 </div>

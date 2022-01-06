@@ -4,10 +4,9 @@
         $reponse = $db->query('SELECT * FROM Matchs where id_sport = '.$_GET['sport'].'');
         $reponse->execute(); 
 ?>
-
-
        <form method="post" action="../View/paris.php" id="info">
             <?php
+            echo'<div class="listematch">';
             while ($match = $reponse->fetch())    //fetch() itérateur
             {
                 echo'<div>';
@@ -15,6 +14,7 @@
                 echo'<label for="match">'.$match['equipe1']." vs ".$match['equipe2'].'</label>';
                 echo'</div>';
             }
+            echo'</div>';
             $reponse->closeCursor();        //fermeture du curseur d'analyse des resultats
             ?>
            </select>
