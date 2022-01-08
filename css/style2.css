@@ -109,72 +109,7 @@ nav.nav button i{
     box-sizing: border-box;
   }
 
-  .modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    transition: 200ms ease-in-out;
-    border: 1px solid white;
-    border-radius: 2px;
-    z-index: 10;
-    background-color: black;
-    width: 400px;
-    height: 550px;
-    max-width: 80%;
-    max-height: 80%;
-  }
-
-  .modal.active {
-    transform: translate(-50%, -50%) scale(1);
-  }
-
-  .modal-body table th {
-    color: white;
-  }
-
-  .modal-header {
-    padding: 10px 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid black;
-  }
   
-  .modal-header .title {
-    font-size: 1.25rem;
-    font-weight: bold;
-  }
-  
-  .modal-header .close-button {
-    cursor: pointer;
-    border: none;
-    outline: none;
-    background: none;
-    font-size: 1.25rem;
-    font-weight: bold;
-  }
-  
-  .modal-body {
-    padding: 50px 15px;
-  }
-  .modal-body input {
-    background:white;
-    border: none;
-    margin: 5px;
-    padding: 10px;
-  }
-
-
-  .title{
-    color: white;
-  }
-
-  .modal-body{
-    display: flex;
-    justify-content: center;
-  }
-
 .register{
   color: white;
   font-size: 10px;
@@ -236,91 +171,10 @@ nav.nav button i{
     justify-content: center;
 }
 
-
-
-.form {
-  margin-top: 20px;
-  background-color: #fff;
-  padding: 40px 60px;
-  border-radius: 10px;
-  min-width: 300px;
+.information-user{
+display: flex;
+justify-content: center;
 }
-.form h1{
-  color: black;
-  text-align:center;
-}
-.form .social-media{
-  margin-top: -10px;
-  display: flex;
-  flex-wrap:wrap;
-  justify-content:center;
-}
-.form .social-media p{
-  padding: 5px;
-  width: 20px;
-  margin-left: 10px;
-  text-align: center;
-  cursor:pointer;
-  color: #545454;
-}
-.form p.choose-email{
-  text-align:center;
-}
-.form .inputs {
-  display: flex;
-  justify-content: center;
-}
-
-.form .inputs {
-  display: flex;
-  justify-content: center;
-}
-
-.form .inputs select{
-  padding: 15px;
-  border:none;
-  border-radius: 5px;
-  background-color:#f2f2f2;
-  outline:none;
-  margin-bottom: 15px;
-}
-
-.form .inputs input[type='text'], input[type='password']{
-  padding: 15px;
-  border:none;
-  border-radius: 5px;
-  background-color:#f2f2f2;
-  outline:none;
-  margin-bottom: 15px;
-}
-.form p.inscription{
-  font-size: 14px;
-  margin-bottom: 20px;
-  color: #878787;
-}
-.form p.inscription span{
-  color: black;
-}
-.form button{
-  padding: 15px 25px;
-  border-radius: 5px;
-  border:none;
-  font-size: 15px;
-  color: #fff;
-  background-color: black;
-  outline:none;
-  cursor:pointer;
-}
-
-.form .inputs input[type='submit']{
-  padding: 15px;
-  border:none;
-  border-radius: 5px;
-  outline:none;
-  margin-bottom: 15px;
-  font-weight: bold;
-}
-
 
 .text{
   color:black;
@@ -400,79 +254,5 @@ section-title {
   font-family: 'Abril Fatface';
   font-weight: 100;
   justify-content: center;
-}
-.most-wanted{
-  margin: 100px;
-  margin-top: 7cm;
-}
-.best-sell{
-  min-height: 500px;
-  display: flex;
-  flex-wrap: wrap;
-}
-.sell-box{
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  min-width: 350px;
-  height: 500px;
-  flex: 1;
-  margin: 20px;
-}
-
-a.sell-box:hover{
-  transform: scale(1.1);
-  transition: 0.3s all;
-}
-
-.car1 {
-  background-image: url(../images/car1.jpg);
-}
-
-.car2 {
-  background-image: url(../images/car2.jpg);
-}
-
-.car3 {
-  background-image: url(../images/car3.jpg);
-}
-.car4 {
-  background-image: url(../images/shoes1.jpg);
-}
-
-.car5 {
-  background-image: url(../images/shoes2.jpg);
-}
-
-.car6 {
-  background-image: url(../images/iphone12.jpg);
-}
-.car7 {
-  background-image: url(../images/imac.jpg);
-}
-
-.car8 {
-  background-image: url(../images/levis.jpg);
-}
-.car-details{
-  position: absolute;
-  width: 100%;
-  bottom:0;
-  background-color: #FFFFFFDF;
-  padding: 5px 20px;
-}
-
-.car-name{
-  font-size: 22px;
-  font-weight: 600;
-  line-height: 3px;
-}
-
-.car-price{
-  color:red;
-  font-weight: 800;
-  line-height: 3px;
-  font-size: 14px;
-
 }
 

@@ -79,7 +79,7 @@ class Parieur {
     }
 
     public function __toString(){
-        return "Voici vos données personnelles </br> Nom : $this->_nom </br> Prenom : $this->_prenom </br>Age : $this->_age </br>Identifiant : $this->_identifiant </br>Capital : $this->_capital </br>";
+        return "</br> Nom : $this->_nom </br> Prenom : $this->_prenom </br>Age : $this->_age </br>Identifiant : $this->_identifiant </br>Capital : $this->_capital </br>Date d'inscription : $this->_capital";
     }
 }
 ?>
