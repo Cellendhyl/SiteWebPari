@@ -26,12 +26,12 @@ var gethttpRequest = function (){
 
     return httpRequest;
 }
-var form = document.getElementById('supprimer')
+var form = document.getElementById('listPari')
 var result = document.getElementById('result')
 form.addEventListener('submit',function(e){
     e.preventDefault()
-    result.innerHTML = 'Chargement...'
     var data = new FormData(form)
+    result.innerHTML = 'Chargement...'
     var xhr = gethttpRequest()
     xhr.onreadystatechange = function(){
         if (xhr.readyState === 4){

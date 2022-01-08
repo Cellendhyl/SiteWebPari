@@ -12,8 +12,6 @@
     <?php
         require("../Controler/isSetConnect.php");
         require("../Controler/connexionBDD.php");
-        require("../Models/Parieur.class.php");
-        require("../Models/PariUser.php");
     ?>
 
     <section class="top-page">
@@ -50,9 +48,7 @@
                     $q = $db-> query("SELECT * FROM PariUser WHERE id_parieur ='".$_SESSION['ID']."'");
                     while ($pariUser = $q -> fetch())
                     {
-                        $pUser = new PariUser();
-                        $pUser->create($pariUser['montant'],$pariUser['gain'],$_SESSION['ID'],$pariUser['id_pari'],$pariUser['id_match']);
-                        echo '<option value="'.$pariUser['id_pariUser'].'">montant : '.$pUser->getMontant() .'  et   gain : '.$pUser->getGain().'</option>'; 
+                        echo '<option value="'.$pariUser['id_pariUser'].'">montant : '.$pariUser['montant'] .'  et   gain : '.$pariUser['gain'].'</option>'; 
                     }   
                 ?>   
             </select>
