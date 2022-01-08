@@ -33,8 +33,7 @@ if(isset($_SESSION["CONNECT"])){
         }
     }
     else {
-        echo 'nice '.$_POST['pari'];
-        //header('Location:../View/accueil.php');
+        header('Location:../View/accueil.php');
     } 
 }
 ?>
