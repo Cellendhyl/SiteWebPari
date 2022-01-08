@@ -250,25 +250,6 @@ nav.nav button i{
   justify-content: center;
 }
 
-.listsport{
-  font-size: 30px;
-  font-family: 'Abril Fatface';
-}
-.listsport h4{
-  background-color: whitesmoke;
-}
-.listsport ul li {
-  list-style-type: none;
-  text-decoration:none;
-}
-
-.listsport a {
-  text-decoration:none;
-  color: black;
-  margin-left: 5mm;
-}
-
-
 footer{
   background-color: black;
   height: auto;
@@ -338,4 +319,23 @@ footer{
 select {
   font-size: .9rem;
   padding: 2px 5px;
+}
+
+.listsport{
+  font-size: 30px;
+  font-family: 'Abril Fatface';
+}
+.listsport h4{
+  background-color: whitesmoke;
+}
+
+.listsport ul li {
+  list-style-type: none;
+  text-decoration:none;
+}
+
+.listsport a {
+  text-decoration:none;
+  color: black;
+  margin-left: 5mm;
 }

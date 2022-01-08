@@ -26,22 +26,47 @@
         </header>
     </section>
 
-
-
-    <section class="middle-page">
-        <h2 class="section-title">Votre Profils </h2>
-
         <?php
             $q = $db-> query("SELECT * FROM Parieur WHERE id_parieur ='".$_SESSION['ID']."'");
             $parieur = $q->fetch();
-
-                echo "<br>Nom : ".$parieur['nom'];
-                echo "<br>Prénom : ".$parieur['prenom'];
-                echo "<br>Age : ".$parieur['age'];
-                echo "<br>Identifiant : ".$parieur['identifiant'];
-                echo "<br>Capital : ".$parieur['capital'];
-                echo "<br>date d'inscription : ".$parieur['inscription'];
+            echo"<h2>Vos informations</h2>";
+                echo "<div class='infojoueur'>";
+                    echo"<ol>";
+                    echo"<li>Nom";
+                    echo"<ol>";
+                    echo '<li>' .$parieur['nom'].'</li>';
+                    echo"</ol>";
+                    echo"</li>";
+                    echo"<li>Prénom";
+                    echo"<ol>";
+                    echo '<li>' .$parieur['prenom'].'</li>';
+                    echo"</ol>";
+                    echo"</li>";
+                    echo"<li>Age";
+                    echo"<ol>";
+                    echo '<li>' .$parieur['age'].'</li>';
+                    echo"</ol>";
+                    echo"</li>";
+                    echo"<li>Identifiant";
+                    echo"<ol>";
+                    echo '<li>' .$parieur['identifiant'].'</li>';
+                    echo"</ol>";
+                    echo"</li>";
+                    echo"<li>Capital";
+                    echo"<ol>";
+                    echo '<li>' .$parieur['capital'].'</li>';
+                    echo"</ol>";
+                    echo"</li>";
+                    echo"<li>Date d'inscription";
+                    echo"<ol>";
+                    echo '<li>' .$parieur['inscription'].'</li>';
+                    echo"</ol>";
+                    echo"</li>";
+                    echo"</ol>";
+                echo "</div>";
         ?>
+
+
 
         <form method="post" action="../Controler/supprimerPari.php" id="listPari">
             <select  name="pari" id="pari">     
@@ -60,7 +85,6 @@
             <button type="submit" name="supprimer" value="supprimer">Supprimer le pari</button>
         </form>
             <div id ="result2"></div>
-        </section>
 
 </body>
 

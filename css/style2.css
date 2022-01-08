@@ -256,3 +256,39 @@ section-title {
   justify-content: center;
 }
 
+
+ol {
+  list-style: none;
+  counter-reset: steps;
+}
+ol li {
+  counter-increment: steps;
+}
+ol li::before {
+  content: counter(steps);
+  margin-right: 0.5rem;
+  background: black;
+  color: white;
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  line-height: 1.2em;
+  margin: 2mm;
+}
+ol ol li::before {
+  background: grey;
+}
+
+h2{
+  display: flex;
+  justify-content: center;
+  margin-top: 2cm;
+}
+.infojoueur{
+  display: flex;
+  justify-content: center;
+
+}
+
