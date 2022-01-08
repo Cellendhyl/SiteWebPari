@@ -37,9 +37,9 @@ class DAOPariUser{
 		$res = $sql -> execute([
     	':montant'=> $this->pariUser->getMontant(),
         ':gain'=> $this->pariUser->getGain(),
-		':id_parieur'=> $this->pariUser->getIdParieur(),
-        ':id_pari'=> $this->pariUser->getIdpari(),
-        ':id_match'=> $this->pariUser->getIdmatch()
+		':id_parieur'=> $this->pariUser->getId_Parieur(),
+        ':id_pari'=> $this->pariUser->getId_Pari(),
+        ':id_match'=> $this->pariUser->getId_Match()
     	]);
 		$id = $this->connexion->lastInsertId();
 		$this->pariUser->setIdPari($id);
@@ -77,9 +77,9 @@ class DAOPariUser{
 				':id_pariUser'=>$this->pariUser->getId_PariUser(),
 			    ':montant'=> $this->pariUser->getMontant(),
         		':gain'=> $this->pariUser->getGain(),
-				':id_parieur'=> $this->pariUser->getIdParieur(),
-        		':id_pari'=> $this->pariUser->getIdpari(),
-        		':id_match'=> $this->pariUser->getIdmatch()
+				':id_parieur'=> $this->pariUser->getId_Parieur(),
+        		':id_pari'=> $this->pariUser->getId_Pari(),
+        		':id_match'=> $this->pariUser->getId_Match()
     	    ]);
 		    $this->connexion = null;
 		    return $res;
@@ -88,6 +88,49 @@ class DAOPariUser{
 		    die();
 	    }
     }
+
+	public function ValidationPari($parieur){
+		try{
+		    $this->connect();
+			$bool = false;
+		    $sql = $this->connexion->prepare("SELECT * FROM Matchs WHERE id_match =:id_match AND fini=1");
+		    $sql -> execute([
+        		':id_match'=> $this->pariUser->getId_Match()
+    	    ]);
+			$match = $sql->fetch();
+			$taille =  $sql ->  rowCount();
+			if ($taille == 1){
+				$bool = true;
+				$sql2 = $this->connexion->prepare("SELECT * FROM PariPossible WHERE id_pari =:id_pari");
+		    	$sql2 -> execute([
+        			':id_pari'=>$this->pariUser->getId_Pari()
+    	    	]);
+				$pari = $sql2->fetch();
+
+				$capital = $parieur->getCapital();
+				if ($this->pariUser->getId_Pari()==1 && $match['vainqueur']==$match['equipe1']){
+					$parieur->setCapital($capital + $this->pariUser->getGain());
+				}
+				else if ($this->pariUser->getId_Pari()==2 && $match['vainqueur']==$match['equipe2']){
+					$parieur->setCapital($capital + $this->pariUser->getGain());
+				}
+				else if ($this->pariUser->getId_Pari()==3 && $match['vainqueur']==null){
+					$parieur->setCapital($capital + $this->pariUser->getGain());
+				}
+				$DAOParieur = new DAOParieur($parieur);
+				$DAOParieur->updateCapital();
+			}
+		    $this->connexion = null;
+	    }catch (PDOException $e){
+		    print "Erreur !: " . $e->getMessage() . "<br/>";
+		    die();
+	    }
+		return $bool;
+	}
+
+	function deletebis(){
+	
+	}
 }
 
 ?>

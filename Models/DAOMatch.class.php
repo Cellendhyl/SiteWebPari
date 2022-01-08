@@ -81,7 +81,7 @@
                 $this->connect();
                 $sql = $this->connexion->prepare("UPDATE Matchs SET id_match=:id_match, id_sport=:id_sport, equipe1=:equipe1, equipe2=:equipe2, date=:date, vainqueur=:vainqueur,score =:score, cotev1=:cotev1,cotev2=:cotev2,coteNul=:coteNul WHERE id_match=:id_match ");
                 $res = $sql -> execute([
-                    ':id_match'=>$this->Matchs->get_idMatch(),
+                    ':id_match'=>$this->match->get_idMatch(),
                     ':id_sport'=>$this->match->get_idSport(),
                     ':equipe1'=> $this->match->get_e1(), 
                     ':equipe2'=>$this->match->get_e2(),
@@ -100,11 +100,14 @@
             }
           }
 
-          public function fini(){
+          public function fini($vainqueur,$score){
             try{
                 $this->connect();
-                $sql = $this->connexion->prepare("UPDATE Matchs SET fini =:fini WHERE id_match=:id_match ");
+                $sql = $this->connexion->prepare("UPDATE Matchs SET score=:score vainqueur =:vainqueur, fini =:fini WHERE id_match=:id_match ");
                 $res = $sql -> execute([
+                    ':id_match'=>$this->match->get_idMatch(),
+                    ':score'=>$score,
+                    ':vainqueur'=>$vainqueur,
                     ':fini'=>1
                 ]);
                 $this->connexion = null;

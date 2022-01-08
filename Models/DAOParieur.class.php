@@ -76,34 +76,44 @@ class DAOParieur{
 	}
   }
   
-     public function update() {
+    public function update() {
       
-	try{
-		$this->connect();
-		$options = [
-			'cost' => 12,
-		];
-		$sql = $this->connexion->prepare("UPDATE Parieur SET nom=:nom, prenom=:prenom, age=:age, identifiant=:identifiant, mdp=:mdp, capital=:capital WHERE id_parieur=:id ");
-		$res = $sql -> execute([
-			':id'=>$this->parieur->getIdParieur(),
-    		':nom'=> $this->parieur->getNom(), 
-    		':prenom'=> $this->parieur->getPrenom(),
-    		':age'=>$this->parieur->getAge(),
-    		':identifiant'=> $this->parieur->getIdentifiant(), 
-    		':mdp'=> $this->parieur->getMdp(),
-    		':capital'=>$this->parieur->getCapital()
-    	]);
-		$this->connexion = null;
-		return $res;
-	}catch (PDOException $e){
-		print "Erreur !: " . $e->getMessage() . "<br/>";
-		die();
-	}
-  }
-  
-    
-  
-   
+		try{
+			$this->connect();
+			$sql = $this->connexion->prepare("UPDATE Parieur SET nom=:nom, prenom=:prenom, age=:age, identifiant=:identifiant, mdp=:mdp, capital=:capital WHERE id_parieur=:id ");
+			$res = $sql -> execute([
+				':id'=>$this->parieur->getIdParieur(),
+    			':nom'=> $this->parieur->getNom(), 
+    			':prenom'=> $this->parieur->getPrenom(),
+    			':age'=>$this->parieur->getAge(),
+    			':identifiant'=> $this->parieur->getIdentifiant(), 
+    			':mdp'=> $this->parieur->getMdp(),
+    			':capital'=>$this->parieur->getCapital()
+    		]);
+			$this->connexion = null;
+			return $res;
+		}catch (PDOException $e){
+			print "Erreur !: " . $e->getMessage() . "<br/>";
+			die();
+		}
+  	} 
+
+	public function updateCapital() {
+      
+		try{
+			$this->connect();
+			$sql = $this->connexion->prepare("UPDATE Parieur SET capital=:capital WHERE id_parieur=:id ");
+			$res = $sql -> execute([
+				':id'=>$this->parieur->getIdParieur(),
+    			':capital'=>$this->parieur->getCapital()
+    		]);
+			$this->connexion = null;
+			return $res;
+		}catch (PDOException $e){
+			print "Erreur !: " . $e->getMessage() . "<br/>";
+			die();
+		}
+  	} 
 }
 
 
