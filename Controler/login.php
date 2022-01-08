@@ -9,7 +9,6 @@ if (isset($_POST['identifiant'])&&isset($_POST['mdp'])){
     include("../Models/DAOParieur.class.php");
     include("../Models/PariUser.php");
     include("../Models/DAOPariUser.php");
-
     $reponse = $db->prepare('SELECT * FROM Parieur where identifiant =:identifiant');
     $reponse->execute([
         ':identifiant' => $identifiant

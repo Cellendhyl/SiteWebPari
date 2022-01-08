@@ -5,12 +5,10 @@
         <link rel="stylesheet" href="../css/style.css"> 
         <link rel="stylesheet" href="../css/all.min.css">
         <script defer src="../js/app.js"></script>
-        <script src="../js/login.js"></script>
-        <script src="../js/match.js"></script>
         <title>Document</title>
     </head> 
+   
     <body>
-        
 <section class="top-page">
         <header class="header">
             <nav class="nav">
@@ -95,5 +93,7 @@
             ?>
         </div>
     </body>
+    <script src="../js/match.js"></script>
+    <script src="../js/login.js"></script>
 </html>
 

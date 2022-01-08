@@ -5,7 +5,6 @@
         <link rel="stylesheet" href="../css/style2.css"> 
         <link rel="stylesheet" href="../css/all.min.css">
         <script defer src="../js/app.js"></script>
-        <script src="../js/pari.js"></script>
         <title>Document</title>
     </head> 
     <body>
@@ -77,5 +76,6 @@
 </form>
 <div id="res"></div>
 </body>
+<script src="../js/pari.js"></script>
 </html>
 

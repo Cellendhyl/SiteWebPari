@@ -26,7 +26,7 @@ var gethttpRequest = function (){
 
     return httpRequest;
 }
-var form = document.querySelector('#inscri')
+var form = document.getElementById('supprimer')
 var result = document.getElementById('result')
 form.addEventListener('submit',function(e){
     e.preventDefault()
@@ -35,12 +35,7 @@ form.addEventListener('submit',function(e){
     var xhr = gethttpRequest()
     xhr.onreadystatechange = function(){
         if (xhr.readyState === 4){
-            if (xhr.responseText != ""){
-                result.innerHTML = xhr.responseText
-            }
-            else {
-               window.location.href = "../View/accueil.php";
-            }
+            result.innerHTML = xhr.responseText
         }
     }
     xhr.open('POST',form.getAttribute('action'),true)

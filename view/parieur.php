@@ -5,7 +5,6 @@
         <link rel="stylesheet" href="../css/style2.css"> 
         <link rel="stylesheet" href="../css/all.min.css">
         <script defer src="../js/app.js"></script>
-        <script src="../js/supprimerPari.js"></script>
         <title>Document</title>
 </head> 
 <body>
@@ -43,9 +42,9 @@
                 echo "<br>date d'inscription : ".$parieur['inscription'];
         ?>
 
-        <form method="post" action="../Controler/supprimerPari.php" id="listPari">
+        <form method="post" action="../Controler/supprimer.php" id="listPari">
             <select  name="pari" id="pari">     
-            <option value="">--Liste de vos Paris--</option>
+            <option value="init">--Liste de vos Paris--</option>
                 <?php
                     echo '<br>liste des paris : <br>';
                     $q = $db-> query("SELECT * FROM PariUser WHERE id_parieur ='".$_SESSION['ID']."'");
@@ -57,17 +56,18 @@
                     }   
                 ?>   
             </select>
-            <button type="submit" name="supprimer" value="supprimer">Supprimer le pari</button>
+            <button type="submit" id="supprimer" name="supprimer" value="supprimer">Supprimer le pari</button>
         </form>
-            <div id ="result2"></div>
+            <div id ="result"></div>
         </section>
-
-</body>
-
-    <?php
+        <?php
         if(isSet($_GET['notif'])){
             echo '<br>'.$_GET['notif'].'<br>'; 
         }
     ?>
+
+</body>
+<script src="../js/supprimer.js"></script>
+   
 
 </html>

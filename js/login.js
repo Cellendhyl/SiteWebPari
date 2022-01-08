@@ -33,10 +33,10 @@ form.addEventListener('submit',function(e){
     e.preventDefault()
     var data = new FormData(form)
     var xhr = gethttpRequest()
+    erreur.innerHTML = 'Chargement...'
     xhr.onreadystatechange = function(){
         if (xhr.readyState === 4){
             if (xhr.responseText == "Erreur de login/mot de passe" || xhr.responseText == "Erreur de login/mot de passe"){
-                alert(xhr.responseText + "ok");
                 erreur.innerHTML = xhr.responseText
             }
             else {
