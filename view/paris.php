@@ -4,7 +4,8 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../css/style2.css"> 
         <link rel="stylesheet" href="../css/all.min.css">
-        <script defer src="../Controler/app.js"></script>
+        <script defer src="../js/app.js"></script>
+        <script src="../js/pari.js"></script>
         <title>Document</title>
     </head> 
     <body>
@@ -23,18 +24,22 @@
         </div>
     </section>
 
-
 <?php
         require("../Controler/isSetConnect.php");
         require("../Controler/connexionBDD.php");
         require("../Models/Match.class.php");
         $reponse = $db->query('SELECT * FROM Matchs where id_match ='.$_POST['match'].'');
-        $reponse->execute(); 
+        $reponse->execute();
+        $reponse2 = $db->query('SELECT * FROM PariPossible ');
+        $reponse2->execute();  
         $match = $reponse->fetch();
         echo '<table>';
         echo '<thead>';
             echo '<tr>';
                 echo '<th colspan="2">'.$match['equipe1']." vs ".$match['equipe2'].'</th>';
+            echo '</tr>';
+            echo '<tr>';
+                echo '<th colspan="2">vous avez un capital de :'.$_SESSION['CAPITAL'].'</th>';
             echo '</tr>';
         echo '</thead>';
         echo '<tbody>';
@@ -50,6 +55,15 @@
                 echo '<td>Cote match nul :</td>';
                 echo '<td><input type="button" onclick="getValue(this.value,this.id)" class ="paris" name="button3"  id="3" value='.$match['coteNul'].'></td>';
             echo '</tr>';
+         
+            while($pari = $reponse2->fetch()){
+                if($pari['id_pari']>3){
+                echo '<tr>';
+                    echo '<td>'.$pari['description'].' :</td>';
+                    echo '<td><input type="button" onclick="getValue(this.value,this.id)" class ="paris" name="button3"  id='.$pari['id_pari'].' value='.$pari['cote'].'></td>';
+                echo '</tr>';
+                }
+            }
         echo '</tbody>';
     echo '</table>';
        
@@ -62,9 +76,6 @@
 ?>
 </form>
 <div id="res"></div>
-<script src="../Controler/pari.js"></script>
-
-
 </body>
 </html>
 

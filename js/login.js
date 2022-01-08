@@ -35,12 +35,14 @@ form.addEventListener('submit',function(e){
     var xhr = gethttpRequest()
     xhr.onreadystatechange = function(){
         if (xhr.readyState === 4){
-            if (xhr.responseText != ""){
+            if (xhr.responseText == "Erreur de login/mot de passe" || xhr.responseText == "Erreur de login/mot de passe"){
+                alert(xhr.responseText + "ok");
                 erreur.innerHTML = xhr.responseText
             }
             else {
-               window.location.href = "../View/parieur.php";
+                window.location.href = "../View/parieur.php";
             }
+           
         }
     }
     xhr.open('POST',form.getAttribute('action'),true)

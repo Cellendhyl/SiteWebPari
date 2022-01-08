@@ -4,8 +4,8 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../css/style2.css"> 
         <link rel="stylesheet" href="../css/all.min.css">
-        <script defer src="../Controler/app.js"></script>
-        <script src="../Controler/supprimerPari.js"></script>
+        <script defer src="../js/app.js"></script>
+        <script src="../js/supprimerPari.js"></script>
         <title>Document</title>
 </head> 
 <body>

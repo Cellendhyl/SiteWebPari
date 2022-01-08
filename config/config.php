@@ -96,4 +96,7 @@ include  'InsertAdmin.php';
 include  'InsertMatch.php';
 include  'InsertPari.php';
 
+
+header('Location : ../View/accueil.php');
+
 ?>

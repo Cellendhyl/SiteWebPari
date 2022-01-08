@@ -103,11 +103,11 @@
           public function fini($vainqueur,$score){
             try{
                 $this->connect();
-                $sql = $this->connexion->prepare("UPDATE Matchs SET score=:score vainqueur =:vainqueur, fini =:fini WHERE id_match=:id_match ");
+                $sql = $this->connexion->prepare("UPDATE Matchs SET vainqueur =:vainqueur, fini =:fini, score =:score WHERE id_match=:id_match ");
                 $res = $sql -> execute([
                     ':id_match'=>$this->match->get_idMatch(),
-                    ':score'=>$score,
                     ':vainqueur'=>$vainqueur,
+                    ':score'=>$score,
                     ':fini'=>1
                 ]);
                 $this->connexion = null;
