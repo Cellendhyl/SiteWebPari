@@ -17,7 +17,6 @@
             echo'</div>';
             $reponse->closeCursor();        //fermeture du curseur d'analyse des resultats
             ?>
-           </select>
            <?php
             session_start(); 
             if (isset($_SESSION["CONNECT"])) {

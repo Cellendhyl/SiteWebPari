@@ -1,6 +1,6 @@
 <?php 
 
-require("../Controler/isSetConnect.php");
+require("isSetConnect.php");
 require("connexionBDD.php");
 require("../Models/PariUser.php");
 require("../Models/DAOPariUser.php");

@@ -1,10 +1,6 @@
 <?php
-session_start(); 
+require("isSetConnectAdminouParieur.php");
 
-if (!isset($_SESSION["CONNECT"])&&!isset($_SESSION["ADMINCONNECT"]))
-{
-    header('Location:../View/accueil.php');
-}
 require("../Controler/connexionBDD.php");
 if(isset($_SESSION["CONNECT"])){
     if(isset($_POST['pari']) ){
