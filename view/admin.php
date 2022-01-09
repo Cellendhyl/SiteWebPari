@@ -89,11 +89,22 @@
                     </form>
                 </table>
                 <table>
+                    <th> Creer un Sport </th>
+                    <form action="../Controler/admin.php" method="POST" id="ajouterSport">
+                    <tr>
+                        <td><input type="text" name="nomSport" placeholder="nom du sport"  required/></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Ajouter un Sport" name="AjouterSport" placeholder=""/></td>
+                    </tr>
+                    </form>
+                </table>
+                <table>
                     <th> Creer un match </th>
                     <form action="../Controler/admin.php" method="POST" id="ajouterMatch">
                     <tr>
                         <td><select  name="sport" id="sport">     
-                            <option value="init">--Liste des Matchs en cours--</option>
+                            <option value="init">--Liste des Sports disponibles--</option>
                         <?php
                             $reponse2 = $db->query('SELECT * FROM Sport ');
                             $reponse2->execute();   

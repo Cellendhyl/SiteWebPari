@@ -31,6 +31,7 @@ var ajouter = document.querySelector('#ajouter');
 var enCours = document.querySelector('#listMatchEnCours');
 var fini = document.querySelector('#listMatchFini');
 var match =  document.querySelector('#ajouterMatch');
+var sport =  document.querySelector('#ajouterSport');
 
 var res = document.getElementById('result');
 function ajax(doc,div){
@@ -53,6 +54,7 @@ ajax(ajouter,res)
 ajax(enCours,res)
 ajax(fini,res)
 ajax(match,res)
+ajax(sport,res)
 
 
 

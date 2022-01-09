@@ -26,6 +26,31 @@ if (isset($_POST['identifiant'])&&isset($_POST['mdp'])){
         echo "identifiant déja utilisé.";
     }
 }
+if (isset($_POST['identifiant'])&&isset($_POST['mdp'])){
+
+
+    extract($_POST);
+   
+    require("../Models/Sport.class.php");
+    require("../Models/DAOSport.class.php");   
+ 
+    $reponse = $db->prepare('SELECT * FROM Sport where nom =:nom');
+    $reponse->execute([
+        ':nom' => $nomSport
+    ]);   
+    $result =  $reponse ->  rowCount();
+    if ($result == 0)
+    {
+        $sport = new Admin(); 
+        $sport->create($nomSport);
+        $sportDAO = new DAOSport($sport);
+        $sportDAO->add(); 
+        echo 'creation du sport avec succès !'; 
+    }
+    else {
+        echo "Sport déja existant ";
+    }
+}
 else if (isset($_POST['matchFini'])){
     require("../Models/Match.class.php");
     require("../Models/DAOMatch.class.php");   
@@ -65,6 +90,7 @@ else if (isset($_POST['matchEnCours'])){
        
 
 }
+
 else if (isset($_POST['match'])&& isset($_POST['score'])){
     require("../Models/Match.class.php");
     require("../Models/DAOMatch.class.php"); 
