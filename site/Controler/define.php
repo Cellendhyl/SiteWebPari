@@ -4,4 +4,6 @@ define('PDO_DBBASE','projet');
 define('PDO_USER','root');
 define('PDO_PW','');
 
+
 ?>
+

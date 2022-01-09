@@ -1,0 +1,1 @@
+<?php echo  '<script>window.location.href = "site/config/config.php";</script>'; ?>
