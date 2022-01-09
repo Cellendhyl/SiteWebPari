@@ -69,7 +69,6 @@ class DAOSport{
 	try{
 		$this->connect();
 		$sql = $this->connexion->prepare("UPDATE sport SET nom=:nom WHERE id_sport=:id ");
-		echo $this->sport->getIdSport();
 		$res = $sql -> execute([
 			':id'=>$this->sport->getIdSport(),
     		':nom'=> $this->sport->getNom(), 

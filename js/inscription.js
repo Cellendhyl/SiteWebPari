@@ -26,28 +26,23 @@ var gethttpRequest = function (){
 
     return httpRequest;
 }
-
-var form = document.querySelector('#login')
-var erreur = document.getElementById('erreur')
+var form = document.querySelector('#inscri')
+var result = document.getElementById('result')
 form.addEventListener('submit',function(e){
     e.preventDefault()
+    result.innerHTML = 'Chargement...'
     var data = new FormData(form)
     var xhr = gethttpRequest()
     xhr.onreadystatechange = function(){
         if (xhr.readyState === 4){
             if (xhr.responseText != ""){
-                erreur.innerHTML = xhr.responseText
+                result.innerHTML = xhr.responseText
             }
             else {
-               window.location.href = "../View/parieur.php";
+               window.location.href = "../View/accueil.php";
             }
         }
     }
     xhr.open('POST',form.getAttribute('action'),true)
     xhr.send(data)
 })
-
-
-
-
-

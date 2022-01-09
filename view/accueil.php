@@ -4,11 +4,11 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../css/style.css"> 
         <link rel="stylesheet" href="../css/all.min.css">
-        <script defer src="../Controler/app.js"></script>
+        <script defer src="../js/app.js"></script>
         <title>Document</title>
     </head> 
+   
     <body>
-        
 <section class="top-page">
         <header class="header">
             <nav class="nav">
@@ -49,7 +49,9 @@
                         <td><input type="submit" value="Se connecter !" name="valider" placeholder=""/></td>
                     </tr>
                     <tr>
-                        <td><a href="mdpOublie.php">Mot de passe oublié ?</a></td>
+                        <td><input type="checkbox" id="admin" name="admin" >admin</td>
+                    </tr>
+                    <tr>
                         <td><a href="inscription.php">Rejoignez-nous</a></td>
                     </tr>
                     <th>
@@ -90,12 +92,8 @@
                     echo "<div id ='result'></div>";
             ?>
         </div>
-        <script src="../Controler/login.js"></script>
-        <script src="../Controler/match.js"></script>
     </body>
- 
-   
-  
-
+    <script src="../js/match.js"></script>
+    <script src="../js/login.js"></script>
 </html>
 

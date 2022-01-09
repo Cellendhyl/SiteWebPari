@@ -26,21 +26,30 @@ var gethttpRequest = function (){
 
     return httpRequest;
 }
-var form = document.querySelector('#inscri')
-var result = document.getElementById('result')
+
+var form = document.querySelector('#login')
+var erreur = document.getElementById('erreur')
 form.addEventListener('submit',function(e){
     e.preventDefault()
-    result.innerHTML = 'Chargement...'
     var data = new FormData(form)
     var xhr = gethttpRequest()
+    erreur.innerHTML = 'Chargement...'
     xhr.onreadystatechange = function(){
-		if (xhr.responseText != ""){
-			result.innerHTML = xhr.responseText
-		}
-		else {
-		   window.location.href = "../View/accueil.php";
-		}
+        if (xhr.readyState === 4){
+            if (xhr.responseText == "Erreur de login/mot de passe" || xhr.responseText == "Erreur de login/mot de passe"){
+                erreur.innerHTML = xhr.responseText
+            }
+            else {
+                window.location.href = "../View/parieur.php";
+            }
+           
+        }
     }
     xhr.open('POST',form.getAttribute('action'),true)
     xhr.send(data)
 })
+
+
+
+
+

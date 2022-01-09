@@ -117,6 +117,12 @@ class DAOPariUser{
 				else if ($this->pariUser->getId_Pari()==3 && $match['vainqueur']==null){
 					$parieur->setCapital($capital + $this->pariUser->getGain());
 				}
+				else if($this->pariUser->getId_Pari()==4){
+					$pos = strpos($match['score'], "-");
+					if (abs(strval(substr($match['score'],0,$pos))-strval(substr($match['score'],$pos+1,strlen($match['score']))))==getId_Pari()-3){
+						$parieur->setCapital($capital + $this->pariUser->getGain());
+					}
+				}
 				$DAOParieur = new DAOParieur($parieur);
 				$DAOParieur->updateCapital();
 			}

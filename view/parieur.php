@@ -4,8 +4,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../css/style2.css"> 
         <link rel="stylesheet" href="../css/all.min.css">
-        <script defer src="../Controler/app.js"></script>
-        <script src="../Controler/supprimerPari.js"></script>
+        <script defer src="../js/app.js"></script>
         <title>Document</title>
 </head> 
 <body>
@@ -13,8 +12,6 @@
     <?php
         require("../Controler/isSetConnect.php");
         require("../Controler/connexionBDD.php");
-        require("../Models/Parieur.class.php");
-        require("../Models/PariUser.php");
     ?>
 
     <section class="top-page">
@@ -70,19 +67,17 @@
 
         <form method="post" action="../Controler/supprimerPari.php" id="listPari">
             <select  name="pari" id="pari">     
-            <option value="">--Liste de vos Paris--</option>
+            <option value="init">--Liste de vos Paris--</option>
                 <?php
                     echo '<br>liste des paris : <br>';
                     $q = $db-> query("SELECT * FROM PariUser WHERE id_parieur ='".$_SESSION['ID']."'");
                     while ($pariUser = $q -> fetch())
                     {
-                        $pUser = new PariUser();
-                        $pUser->create($pariUser['montant'],$pariUser['gain'],$_SESSION['ID'],$pariUser['id_pari'],$pariUser['id_match']);
-                        echo '<option value="'.$pariUser['id_pariUser'].'">montant : '.$pUser->getMontant() .'  et   gain : '.$pUser->getGain().'</option>'; 
+                        echo '<option value="'.$pariUser['id_pariUser'].'">montant : '.$pariUser['montant'] .'  et   gain : '.$pariUser['gain'].'</option>'; 
                     }   
                 ?>   
             </select>
-            <button type="submit" name="supprimer" value="supprimer">Supprimer le pari</button>
+            <button type="submit" id="supprimer" name="supprimer" value="supprimer">Supprimer le pari</button>
         </form>
             <div id ="result2"></div>
 
@@ -93,5 +88,9 @@
             echo '<br>'.$_GET['notif'].'<br>'; 
         }
     ?>
+
+</body>
+<script src="../js/supprimer.js"></script>
+   
 
 </html>

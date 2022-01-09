@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../css/style2.css"> 
         <link rel="stylesheet" href="../css/all.min.css">
-        <script defer src="../Controler/app.js"></script>
+        <script defer src="../js/app.js"></script>
         <title>Document</title>
     </head> 
     <body>
@@ -43,5 +43,5 @@
 
 </section>
 </body>
-    <script src="../Controler/inscription.js"></script>
+<script src="../js/inscription.js"></script>
 </html>

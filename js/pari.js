@@ -73,21 +73,20 @@ form.addEventListener('submit',function(e){
 
 
 function getValue(cote,id){
-    var index = button.indexOf(cote);
+    var index = button.indexOf(id);
     var id1 = id+"a";
     var id2 = id+"b";
     var id3 = id+"c";
     var div = document.createElement("div");
     if(index==-1){
         document.getElementById(id).style.backgroundColor="red";
-        button.push(cote);
+        button.push(id);
         div.innerHTML = 
         '<input id='+ id1 + ' type="number" name='+ id +' onkeyup="gain('+ cote + ',this.name,this.value);"  placeholder="Entrez une valeur ici" value="" required>' +
         '<div id='+ id2 + ' name = "gain" value=""></div>' + 
         '<input id='+ id3 + ' name="xxx[]" type="hidden" value=""></input>'+
         '<input id='+ id3 + ' name="pari[]" type="hidden" value="'+id+'"></input>';
         form.appendChild(div);
-    
         }
     else{
         button.splice(index, 1);

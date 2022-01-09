@@ -2,6 +2,7 @@
 
 if (isset($_POST['identifiant'])&&isset($_POST['mdp'])){
     extract($_POST);
+    if()
     require("../Controler/connexionBDD.php");
     include("../Models/Match.class.php");
     include("../Models/DAOMatch.class.php");
@@ -9,7 +10,6 @@ if (isset($_POST['identifiant'])&&isset($_POST['mdp'])){
     include("../Models/DAOParieur.class.php");
     include("../Models/PariUser.php");
     include("../Models/DAOPariUser.php");
-
     $reponse = $db->prepare('SELECT * FROM Parieur where identifiant =:identifiant');
     $reponse->execute([
         ':identifiant' => $identifiant
@@ -23,7 +23,6 @@ if (isset($_POST['identifiant'])&&isset($_POST['mdp'])){
             $_SESSION['ID'] = $result['id_parieur'];
             $_SESSION["CONNECT"]="OK";
             $_SESSION["LOGIN"]= $identifiant;
-            $_SESSION["CAPITAL"]=$result['capital'];
             $p= new Parieur();
             $p->create($result['nom'],$result['prenom'],$result['age'],$identifiant,$hashpassword);
             $p->setCapital($result['capital']);
@@ -43,6 +42,12 @@ if (isset($_POST['identifiant'])&&isset($_POST['mdp'])){
                     $DaoPari->delete();
                 } 
             }
+            $reponse = $db->prepare('SELECT * FROM Parieur where identifiant =:identifiant');
+            $reponse->execute([
+                ':identifiant' => $identifiant
+            ]);
+            $_SESSION["CAPITAL"]=$result['capital'];
+           
         }
         else {  
             echo "Erreur de login/mot de passe";
