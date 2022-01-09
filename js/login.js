@@ -40,9 +40,13 @@ form.addEventListener('submit',function(e){
                 erreur.innerHTML = xhr.responseText
             }
             else {
-                window.location.href = "../View/parieur.php";
+                if (document.getElementById("admin").checked){
+                    window.location.href = "../View/admin.php";
+                }
+                else {
+                    window.location.href = "../View/parieur.php";
+                } 
             }
-           
         }
     }
     xhr.open('POST',form.getAttribute('action'),true)
